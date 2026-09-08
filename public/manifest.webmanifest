@@ -1,0 +1,17 @@
+{
+  "name": "Rehan Ali | Senior Embroidery Machine Operator & Mechanical Master",
+  "short_name": "Rehan Ali",
+  "description": "Professional portfolio and CV of Rehan Ali — Senior Embroidery Machine Operator & Mechanical Master with 10+ years experience.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0F172A",
+  "theme_color": "#0F172A",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

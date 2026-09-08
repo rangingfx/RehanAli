@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+@layer utilities {
+  /* Subtle textile stitch border pattern */
+  .border-stitch {
+    border-style: dashed;
+    border-width: 1.5px;
+  }
+}
+
+@media print {
+  /* Hide interactive web chrome, headers, sticky bars, and modal overlays */
+  .no-print,
+  nav,
+  header,
+  footer,
+  #mobile-bottom-bar,
+  #quick-action-fab {
+    display: none !important;
+  }
+
+  body {
+    background-color: #ffffff !important;
+    color: #0f172a !important;
+    font-size: 11pt !important;
+    line-height: 1.4 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Force display of CV print container */
+  .print-only {
+    display: block !important;
+  }
+
+  .print-page {
+    box-shadow: none !important;
+    border: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  a {
+    text-decoration: none !important;
+    color: inherit !important;
+  }
+
+  .page-break {
+    page-break-before: always;
+  }
+}
