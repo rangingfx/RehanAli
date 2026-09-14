@@ -27,7 +27,15 @@ export const ContactSection: React.FC = () => {
   const [inquiryNotes, setInquiryNotes] = useState('');
 
   const copyToClipboard = (text: string, idx: number) => {
-    navigator.clipboard.writeText(text);
+    try {
+      if (navigator?.clipboard?.writeText) {
+        navigator.clipboard.writeText(text).catch(() => {
+          // Ignore permission denial
+        });
+      }
+    } catch {
+      // Ignore
+    }
     setCopiedIndex(idx);
     setTimeout(() => setCopiedIndex(null), 2500);
   };

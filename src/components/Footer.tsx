@@ -1,13 +1,26 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { contactInfo } from '../data/profileData';
 import { Phone, MessageCircle, FileText, ArrowUp, ExternalLink, ShieldCheck } from 'lucide-react';
 import { downloadVCard } from '../utils/vcard';
+import {
+  getSavedProfilePhoto,
+  subscribeProfilePhoto,
+  DEFAULT_PROFILE_PHOTO,
+} from '../utils/photoState';
 
 interface FooterProps {
-  onOpenCV: () => void;
+  onOpenCV?: () => void;
 }
 
-export const Footer: React.FC<FooterProps> = ({ onOpenCV }) => {
+export const Footer: React.FC<FooterProps> = () => {
+  const [profilePhoto, setProfilePhoto] = useState<string>(getSavedProfilePhoto);
+
+  useEffect(() => {
+    const unsub = subscribeProfilePhoto((photo) => setProfilePhoto(photo));
+    return unsub;
+  }, []);
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -21,19 +34,37 @@ export const Footer: React.FC<FooterProps> = ({ onOpenCV }) => {
           
           {/* Col 1: Identity & Availability */}
           <div className="lg:col-span-5 space-y-4">
-            <div className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded-lg bg-amber-500 flex items-center justify-center text-slate-950 font-black text-sm">
-                RA
+            <Link
+              to="/"
+              onClick={scrollToTop}
+              className="flex items-center gap-3.5 group focus:outline-none w-fit cursor-pointer"
+              title="Return to Home"
+            >
+              <div className="w-11 h-11 rounded-xl overflow-hidden border-2 border-amber-500/80 p-0.5 bg-slate-950 shadow-lg shadow-amber-500/10 group-hover:border-amber-400 group-hover:scale-105 transition-all shrink-0">
+                {profilePhoto ? (
+                  <img
+                    src={profilePhoto}
+                    alt="Rehan Ali - Senior Embroidery Machine Operator & Mechanical Master"
+                    className="w-full h-full object-cover object-top rounded-[9px]"
+                  />
+                ) : (
+                  <div className="w-full h-full bg-slate-950 rounded-[9px] flex items-center justify-center text-amber-400 font-black tracking-tight text-base group-hover:text-amber-300 transition-colors">
+                    RA
+                  </div>
+                )}
               </div>
               <div>
-                <div className="text-base font-bold text-white tracking-tight">
-                  {contactInfo.name}
+                <div className="text-base font-bold text-white tracking-tight group-hover:text-amber-300 transition-colors flex items-center gap-2">
+                  <span>{contactInfo.name}</span>
+                  <span className="text-[10px] font-mono font-bold uppercase bg-amber-500/20 text-amber-300 border border-amber-500/30 px-1.5 py-0.5 rounded">
+                    10+ Yrs
+                  </span>
                 </div>
                 <div className="text-xs text-amber-400 font-medium">
                   {contactInfo.title}
                 </div>
               </div>
-            </div>
+            </Link>
 
             <p className="text-slate-400 text-xs sm:text-sm leading-relaxed max-w-sm">
               Dedicated embroidery machine operator and mechanical master with over 10 years of industrial production experience. Available for immediate employment opportunities across Pakistan.
@@ -52,42 +83,29 @@ export const Footer: React.FC<FooterProps> = ({ onOpenCV }) => {
             </div>
             <ul className="space-y-2 text-xs">
               <li>
-                <a href="#summary" className="hover:text-amber-400 transition-colors">
-                  Professional Summary
-                </a>
+                <Link to="/" className="hover:text-amber-400 transition-colors">
+                  Home (/)
+                </Link>
               </li>
               <li>
-                <a href="#experience" className="hover:text-amber-400 transition-colors">
-                  Experience Timeline (2011–Present)
-                </a>
+                <Link to="/profile" className="hover:text-amber-400 transition-colors">
+                  Profile & About (/profile)
+                </Link>
               </li>
               <li>
-                <a href="#skills" className="hover:text-amber-400 transition-colors">
-                  Core Skills & Capabilities
-                </a>
+                <Link to="/cv" className="hover:text-amber-400 transition-colors">
+                  CV & Resume (/cv)
+                </Link>
               </li>
               <li>
-                <a href="#responsibilities" className="hover:text-amber-400 transition-colors">
-                  Key Responsibilities
-                </a>
+                <Link to="/work" className="hover:text-amber-400 transition-colors">
+                  Work Experience (/work)
+                </Link>
               </li>
               <li>
-                <a href="#machinery" className="hover:text-amber-400 transition-colors">
-                  Machinery & Technical Expertise
-                </a>
-              </li>
-              <li>
-                <a href="#why-hire" className="hover:text-amber-400 transition-colors">
-                  Why Hire Rehan Ali
-                </a>
-              </li>
-              <li>
-                <button
-                  onClick={onOpenCV}
-                  className="hover:text-amber-400 transition-colors text-left"
-                >
-                  Printable CV & Resume
-                </button>
+                <Link to="/embroidery-machine" className="hover:text-amber-400 transition-colors">
+                  Embroidery Machine (/embroidery-machine)
+                </Link>
               </li>
             </ul>
           </div>
@@ -125,13 +143,13 @@ export const Footer: React.FC<FooterProps> = ({ onOpenCV }) => {
                 <span>WhatsApp</span>
               </a>
 
-              <button
-                onClick={onOpenCV}
+              <Link
+                to="/cv"
                 className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-700 hover:border-amber-500/50 text-slate-200 text-xs font-semibold transition-colors"
               >
                 <FileText className="w-3.5 h-3.5 text-amber-400" />
                 <span>Download CV</span>
-              </button>
+              </Link>
 
               <button
                 onClick={downloadVCard}

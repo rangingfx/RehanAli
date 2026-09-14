@@ -9,6 +9,11 @@
 }
 
 @media print {
+  @page {
+    size: A4 portrait;
+    margin: 8mm 10mm;
+  }
+
   /* Hide interactive web chrome, headers, sticky bars, and modal overlays */
   .no-print,
   nav,
@@ -22,8 +27,8 @@
   body {
     background-color: #ffffff !important;
     color: #0f172a !important;
-    font-size: 11pt !important;
-    line-height: 1.4 !important;
+    font-size: 10pt !important;
+    line-height: 1.35 !important;
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
   }
@@ -40,6 +45,12 @@
     padding: 0 !important;
     width: 100% !important;
     max-width: 100% !important;
+    background: #ffffff !important;
+  }
+
+  .break-inside-avoid {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
   }
 
   a {

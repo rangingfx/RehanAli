@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import {
   Phone,
   MessageCircle,
@@ -13,6 +14,7 @@ import {
   Maximize2,
   ShieldCheck,
   Award,
+  User,
 } from 'lucide-react';
 import { heroContent, contactInfo } from '../data/profileData';
 import { EmbroideryMachineryVisual } from './EmbroideryMachineryVisual';
@@ -27,7 +29,7 @@ import {
 import { PhotoLightboxModal } from './PhotoLightboxModal';
 
 interface HeroProps {
-  onOpenCV: () => void;
+  onOpenCV?: () => void;
 }
 
 export const Hero: React.FC<HeroProps> = ({ onOpenCV }) => {
@@ -112,7 +114,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCV }) => {
                 >
                   <img
                     src={profilePhoto || DEFAULT_PROFILE_PHOTO}
-                    alt="Rehan Ali - Senior Embroidery Machine Operator"
+                    alt="Rehan Ali - Senior Embroidery Machine Operator and Mechanical Master"
                     className="w-full h-full object-cover object-top rounded-[14px]"
                   />
                   {/* Hover zoom indicator overlay */}
@@ -188,12 +190,16 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCV }) => {
 
             {/* Name & Title */}
             <div className="space-y-2">
-              <h1 className="text-4xl sm:text-5xl xl:text-6xl font-black text-white tracking-tight leading-[1.08]">
-                {heroContent.headline}
+              <div className="text-amber-400 font-mono text-xs sm:text-sm font-bold uppercase tracking-wider flex items-center gap-2">
+                <span>REHAN ALI</span>
+                <span className="text-slate-600">•</span>
+                <span className="text-slate-300 font-normal">Textile &amp; Garment Industry Specialist</span>
+              </div>
+              <h1 className="text-3xl sm:text-4xl xl:text-5xl font-black text-white tracking-tight leading-[1.12]">
+                Senior Embroidery Machine Operator &amp; Mechanical Master
               </h1>
-              <div className="text-xl sm:text-2xl xl:text-3xl font-bold bg-gradient-to-r from-amber-400 via-amber-300 to-amber-500 bg-clip-text text-transparent leading-snug">
-                {heroContent.titleLine1} <br className="hidden sm:inline" />
-                {heroContent.titleLine2}
+              <div className="text-lg sm:text-xl xl:text-2xl font-bold bg-gradient-to-r from-amber-400 via-amber-300 to-amber-500 bg-clip-text text-transparent leading-snug">
+                Computerized Machine Operation, Maintenance &amp; Troubleshooting
               </div>
             </div>
 
@@ -225,22 +231,22 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCV }) => {
               </a>
 
               {/* Third CTA: View Experience */}
-              <a
-                href="#experience"
+              <Link
+                to="/work"
                 className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 text-slate-200 hover:text-white font-medium text-sm border border-slate-700 transition-all"
               >
                 <span>View Experience</span>
                 <ChevronRight className="w-4 h-4 text-slate-400" />
-              </a>
+              </Link>
 
               {/* Fourth CTA: Download / Print CV */}
-              <button
-                onClick={onOpenCV}
+              <Link
+                to="/cv"
                 className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 text-slate-200 hover:text-white font-medium text-sm border border-slate-700 transition-all"
               >
                 <FileText className="w-4 h-4 text-amber-400" />
                 <span>Download / Print CV</span>
-              </button>
+              </Link>
             </div>
 
             {/* Clickable Phone Number Pills & Quick Save */}

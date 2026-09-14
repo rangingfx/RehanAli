@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Phone, MessageCircle, FileText, X } from 'lucide-react';
 import { contactInfo } from '../data/profileData';
 
 interface MobileBottomBarProps {
-  onOpenCV: () => void;
+  onOpenCV?: () => void;
 }
 
 export const MobileBottomBar: React.FC<MobileBottomBarProps> = ({ onOpenCV }) => {
@@ -90,15 +91,16 @@ export const MobileBottomBar: React.FC<MobileBottomBarProps> = ({ onOpenCV }) =>
           </a>
 
           {/* CV */}
-          <button
-            onClick={onOpenCV}
+          <Link
+            to="/cv"
             className="flex flex-col items-center justify-center py-2 px-1 rounded-xl bg-slate-900 border border-slate-800 hover:border-amber-500/50 text-slate-200 active:bg-slate-800 transition-colors"
           >
             <FileText className="w-4 h-4 text-amber-400 mb-0.5" />
             <span className="text-[11px] font-bold tracking-wider uppercase">CV</span>
-          </button>
+          </Link>
         </div>
       </div>
     </>
   );
 };
+

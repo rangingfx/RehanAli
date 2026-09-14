@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import {
   Phone,
   MessageCircle,
@@ -17,14 +18,16 @@ import {
 } from '../utils/photoState';
 
 interface HeaderProps {
-  onOpenCV: () => void;
-  currentSection: string;
+  onOpenCV?: () => void;
+  currentSection?: string;
 }
 
-export const Header: React.FC<HeaderProps> = ({ onOpenCV, currentSection }) => {
+export const Header: React.FC<HeaderProps> = ({ onOpenCV }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [phoneDropdownOpen, setPhoneDropdownOpen] = useState(false);
   const [profilePhoto, setProfilePhoto] = useState<string | null>(getSavedProfilePhoto);
+  const location = useLocation();
+  const pathname = location.pathname;
 
   useEffect(() => {
     const unsub = subscribeProfilePhoto((photo) => setProfilePhoto(photo));
@@ -32,14 +35,19 @@ export const Header: React.FC<HeaderProps> = ({ onOpenCV, currentSection }) => {
   }, []);
 
   const navLinks = [
-    { label: 'Summary', href: '#summary' },
-    { label: 'Experience', href: '#experience' },
-    { label: 'Skills', href: '#skills' },
-    { label: 'Responsibilities', href: '#responsibilities' },
-    { label: 'Machinery', href: '#machinery' },
-    { label: 'Why Hire', href: '#why-hire' },
-    { label: 'Contact', href: '#contact' },
+    { label: 'Home', href: '/' },
+    { label: 'Profile', href: '/profile' },
+    { label: 'CV', href: '/cv' },
+    { label: 'Work', href: '/work' },
+    { label: 'Embroidery Machine', href: '/embroidery-machine' },
   ];
+
+  const isLinkActive = (href: string) => {
+    if (href === '/') {
+      return pathname === '/' || pathname === '/home';
+    }
+    return pathname === href;
+  };
 
   return (
     <header className="sticky top-0 z-40 bg-slate-950/90 backdrop-blur-md border-b border-slate-800 text-slate-100 no-print transition-all">
@@ -80,12 +88,12 @@ export const Header: React.FC<HeaderProps> = ({ onOpenCV, currentSection }) => {
       {/* Main Navigation Bar */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         {/* Logo / Branding */}
-        <a href="#" className="flex items-center gap-3 group focus:outline-none">
+        <Link to="/" className="flex items-center gap-3 group focus:outline-none">
           <div className="w-10 h-10 rounded-lg overflow-hidden border border-amber-500/70 p-0.5 bg-slate-950 shadow-md shadow-amber-500/10 shrink-0">
             {profilePhoto ? (
               <img
                 src={profilePhoto}
-                alt="Rehan Ali"
+                alt="Rehan Ali - Senior Embroidery Machine Operator"
                 className="w-full h-full object-cover rounded-[6px]"
               />
             ) : (
@@ -105,36 +113,39 @@ export const Header: React.FC<HeaderProps> = ({ onOpenCV, currentSection }) => {
               Senior Embroidery Machine Operator & Mechanical Master
             </div>
           </div>
-        </a>
+        </Link>
 
         {/* Desktop Navigation Links */}
-        <nav className="hidden xl:flex items-center gap-1">
-          {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className={`px-3 py-1.5 rounded-md text-xs font-medium transition-colors ${
-                currentSection === link.href.replace('#', '')
-                  ? 'text-amber-400 bg-slate-800/80 font-semibold'
-                  : 'text-slate-300 hover:text-white hover:bg-slate-800/50'
-              }`}
-            >
-              {link.label}
-            </a>
-          ))}
+        <nav className="hidden lg:flex items-center gap-1">
+          {navLinks.map((link) => {
+            const active = isLinkActive(link.href);
+            return (
+              <Link
+                key={link.href}
+                to={link.href}
+                className={`px-3 py-1.5 rounded-md text-xs font-medium transition-colors ${
+                  active
+                    ? 'text-amber-400 bg-slate-800/80 font-bold border border-amber-500/30'
+                    : 'text-slate-300 hover:text-white hover:bg-slate-800/50'
+                }`}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
         </nav>
 
         {/* Desktop CTAs */}
         <div className="hidden sm:flex items-center gap-2.5">
           {/* CV Action Button */}
-          <button
-            onClick={onOpenCV}
+          <Link
+            to="/cv"
             className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg border border-slate-700 hover:border-amber-500/50 bg-slate-900 text-slate-200 hover:text-white text-xs font-medium transition-all shadow-sm active:scale-95"
             title="View, Print or Download Rehan Ali's CV"
           >
             <FileText className="w-3.5 h-3.5 text-amber-400" />
             <span>Print / View CV</span>
-          </button>
+          </Link>
 
           {/* Quick Call Dropdown */}
           <div className="relative">
@@ -190,14 +201,14 @@ export const Header: React.FC<HeaderProps> = ({ onOpenCV, currentSection }) => {
         </div>
 
         {/* Mobile Hamburger Button */}
-        <div className="flex items-center gap-2 sm:hidden">
-          <button
-            onClick={onOpenCV}
+        <div className="flex items-center gap-2 lg:hidden">
+          <Link
+            to="/cv"
             className="p-2 rounded-lg bg-slate-900 border border-slate-700 text-amber-400"
             title="View CV"
           >
             <FileText className="w-4 h-4" />
-          </button>
+          </Link>
           <a
             href={contactInfo.phones[0].whatsappUrl}
             target="_blank"
@@ -219,18 +230,26 @@ export const Header: React.FC<HeaderProps> = ({ onOpenCV, currentSection }) => {
 
       {/* Mobile Menu Dropdown */}
       {mobileMenuOpen && (
-        <div className="sm:hidden bg-slate-950/98 border-b border-slate-800 px-4 pt-2 pb-6 space-y-3">
-          <div className="grid grid-cols-2 gap-2 pt-2">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className="px-3 py-2 rounded-lg bg-slate-900/90 border border-slate-800 text-xs font-medium text-slate-200 hover:text-amber-400 hover:border-slate-700 text-center"
-              >
-                {link.label}
-              </a>
-            ))}
+        <div className="lg:hidden bg-slate-950/98 border-b border-slate-800 px-4 pt-2 pb-6 space-y-3">
+          <div className="flex flex-col gap-1.5 pt-2">
+            {navLinks.map((link) => {
+              const active = isLinkActive(link.href);
+              return (
+                <Link
+                  key={link.href}
+                  to={link.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={`px-3.5 py-2.5 rounded-lg text-xs font-semibold text-left transition-colors flex items-center justify-between ${
+                    active
+                      ? 'bg-amber-500/10 text-amber-400 border border-amber-500/30'
+                      : 'bg-slate-900/90 text-slate-200 hover:text-amber-400 border border-slate-800'
+                  }`}
+                >
+                  <span>{link.label}</span>
+                  {active && <span className="w-1.5 h-1.5 rounded-full bg-amber-400"></span>}
+                </Link>
+              );
+            })}
           </div>
 
           <div className="pt-2 border-t border-slate-800/80 space-y-2">
@@ -251,16 +270,14 @@ export const Header: React.FC<HeaderProps> = ({ onOpenCV, currentSection }) => {
             </div>
 
             <div className="grid grid-cols-2 gap-2 pt-1">
-              <button
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  onOpenCV();
-                }}
+              <Link
+                to="/cv"
+                onClick={() => setMobileMenuOpen(false)}
                 className="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-lg bg-slate-800 text-slate-100 text-xs font-semibold border border-slate-700"
               >
                 <FileText className="w-4 h-4 text-amber-400" />
                 <span>View / Print CV</span>
-              </button>
+              </Link>
               <button
                 onClick={() => {
                   setMobileMenuOpen(false);
