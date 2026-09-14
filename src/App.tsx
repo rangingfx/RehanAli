@@ -47,14 +47,11 @@ export default function App() {
       <LegacyHashRedirect />
       <ScrollToTop />
       <Routes>
-        {/* CV route with dedicated executive toolbar & print formatting */}
-        <Route path="/cv" element={<CVPage />} />
-
-        {/* Standard Layout Pages */}
         <Route element={<MainLayout />}>
           <Route path="/" element={<HomePage />} />
           <Route path="/home" element={<HomePage />} />
           <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/cv" element={<CVPage />} />
           <Route path="/work" element={<WorkPage />} />
           <Route path="/embroidery-machine" element={<EmbroideryMachinePage />} />
           <Route path="/contact" element={<Navigate to="/#contact" replace />} />

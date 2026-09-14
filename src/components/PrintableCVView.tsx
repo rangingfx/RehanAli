@@ -118,17 +118,9 @@ export const PrintableCVView: React.FC<PrintableCVViewProps> = ({ onBack }) => {
                 </Link>
               )}
 
-              {/* Quick Route Links & Breadcrumb */}
+              {/* Quick Route Jump Links */}
               <div className="hidden md:flex items-center gap-2 pl-3 border-l border-slate-800 text-xs text-slate-400 font-medium">
-                <nav aria-label="Breadcrumb" className="flex items-center gap-1.5">
-                  <Link to="/" className="hover:text-amber-400 transition-colors flex items-center gap-1">
-                    <Home className="w-3.5 h-3.5" />
-                    <span>Home</span>
-                  </Link>
-                  <span className="text-slate-600">/</span>
-                  <span className="text-amber-400 font-semibold" aria-current="page">CV / Resume</span>
-                </nav>
-                <span className="text-slate-700">|</span>
+                <span className="text-slate-500">Jump:</span>
                 <Link to="/profile" className="hover:text-amber-400 px-1.5 py-0.5 rounded transition-colors">
                   Profile
                 </Link>
