@@ -1,4 +1,3 @@
 # Bun Build & Package Management Configuration
 [install]
-frozenLockfile = true
 lockfile = true
