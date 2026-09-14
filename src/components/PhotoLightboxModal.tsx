@@ -66,7 +66,7 @@ export const PhotoLightboxModal: React.FC<PhotoLightboxModalProps> = ({
             <a
               href={imageSrc}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               className="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors"
               title="Open full resolution in new tab"
             >

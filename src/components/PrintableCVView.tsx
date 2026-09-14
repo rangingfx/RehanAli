@@ -257,6 +257,9 @@ export const PrintableCVView: React.FC<PrintableCVViewProps> = ({ onBack }) => {
                     src={profilePhoto || DEFAULT_PROFILE_PHOTO}
                     alt="Rehan Ali - Senior Embroidery Machine Operator & Mechanical Master CV Portrait"
                     className="w-full h-full object-cover object-top rounded-[13px]"
+                    width="112"
+                    height="112"
+                    decoding="async"
                   />
                 </div>
                 <div className="absolute -bottom-1 -right-1 bg-emerald-600 text-white rounded-full p-1 border-2 border-white shadow-sm" title="Verified Senior Operator">
@@ -745,6 +748,20 @@ export const PrintableCVView: React.FC<PrintableCVViewProps> = ({ onBack }) => {
         </footer>
 
       </article>
+
+      {/* Web-only navigation links (hidden when printing) */}
+      <div className="max-w-5xl mx-auto mt-8 mb-6 flex flex-wrap items-center justify-between gap-4 text-xs text-slate-400 no-print px-4">
+        <Link to="/" className="hover:text-amber-400 transition-colors flex items-center gap-1.5 font-medium">
+          <ArrowLeft className="w-3.5 h-3.5" />
+          <span>Return to Home</span>
+        </Link>
+        <div className="flex flex-wrap items-center gap-4">
+          <Link to="/profile" className="hover:text-amber-400 transition-colors">Professional Profile</Link>
+          <Link to="/work" className="hover:text-amber-400 transition-colors">Work Experience</Link>
+          <Link to="/embroidery-machine" className="hover:text-amber-400 transition-colors">Embroidery Machinery</Link>
+          <a href="/#contact" className="hover:text-amber-400 transition-colors">Contact</a>
+        </div>
+      </div>
 
     </div>
   );

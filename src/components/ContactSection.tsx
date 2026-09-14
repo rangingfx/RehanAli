@@ -49,7 +49,15 @@ export const ContactSection: React.FC = () => {
     }Please let us know your availability for an interview.`;
 
     const encoded = encodeURIComponent(textMessage);
-    window.open(`https://wa.me/923223988933?text=${encoded}`, '_blank');
+    const waUrl = `https://wa.me/923223988933?text=${encoded}`;
+    try {
+      const opened = window.open(waUrl, '_blank', 'noopener,noreferrer');
+      if (!opened) {
+        window.location.href = waUrl;
+      }
+    } catch {
+      window.location.href = waUrl;
+    }
   };
 
   return (

@@ -116,6 +116,9 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCV }) => {
                     src={profilePhoto || DEFAULT_PROFILE_PHOTO}
                     alt="Rehan Ali - Senior Embroidery Machine Operator and Mechanical Master"
                     className="w-full h-full object-cover object-top rounded-[14px]"
+                    width="80"
+                    height="80"
+                    decoding="async"
                   />
                   {/* Hover zoom indicator overlay */}
                   <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity rounded-[14px] flex items-center justify-center text-amber-300">

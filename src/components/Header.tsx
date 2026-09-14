@@ -40,11 +40,15 @@ export const Header: React.FC<HeaderProps> = ({ onOpenCV }) => {
     { label: 'CV', href: '/cv' },
     { label: 'Work', href: '/work' },
     { label: 'Embroidery Machine', href: '/embroidery-machine' },
+    { label: 'Contact', href: '/#contact' },
   ];
 
   const isLinkActive = (href: string) => {
     if (href === '/') {
-      return pathname === '/' || pathname === '/home';
+      return (pathname === '/' || pathname === '/home') && !location.hash;
+    }
+    if (href === '/#contact') {
+      return location.hash === '#contact';
     }
     return pathname === href;
   };
@@ -95,6 +99,9 @@ export const Header: React.FC<HeaderProps> = ({ onOpenCV }) => {
                 src={profilePhoto}
                 alt="Rehan Ali - Senior Embroidery Machine Operator"
                 className="w-full h-full object-cover rounded-[6px]"
+                width="40"
+                height="40"
+                decoding="async"
               />
             ) : (
               <div className="w-full h-full bg-slate-950 rounded-[6px] flex items-center justify-center text-amber-400 font-black tracking-tight text-base group-hover:text-amber-300 transition-colors">

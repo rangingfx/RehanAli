@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { BrowserRouter, Routes, Route, useNavigate, useLocation } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate, useNavigate, useLocation } from 'react-router-dom';
 import { ScrollToTop } from './components/ScrollToTop';
 import { MainLayout } from './components/MainLayout';
 import { HomePage } from './pages/HomePage';
@@ -57,6 +57,7 @@ export default function App() {
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/work" element={<WorkPage />} />
           <Route path="/embroidery-machine" element={<EmbroideryMachinePage />} />
+          <Route path="/contact" element={<Navigate to="/#contact" replace />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>

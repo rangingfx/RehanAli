@@ -86,7 +86,7 @@ export const NotFoundPage: React.FC = () => {
             className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs tracking-wide shadow-lg shadow-amber-500/20 transition-all"
           >
             <Home className="w-4 h-4" />
-            <span>Return to Home Page</span>
+            <span>Back to Home</span>
           </Link>
 
           <a

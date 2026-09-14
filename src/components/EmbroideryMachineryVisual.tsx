@@ -124,6 +124,10 @@ export const EmbroideryMachineryVisual: React.FC<EmbroideryMachineryVisualProps>
                 src={FACTORY_ACTION_PHOTO}
                 alt="Rehan Ali operating industrial computerized embroidery machine"
                 className="w-full h-full object-cover object-center group-hover:scale-[1.02] transition-transform duration-500"
+                loading="lazy"
+                decoding="async"
+                width="800"
+                height="500"
               />
               {/* Subtle gradient overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent pointer-events-none" />
