@@ -3,6 +3,4 @@ pages_build_output_dir = "dist"
 compatibility_date = "2024-09-23"
 
 [vars]
-BUN_VERSION = "1.2.15"
 NODE_VERSION = "24.18.0"
-SKIP_DEPENDENCY_INSTALL = "true"
