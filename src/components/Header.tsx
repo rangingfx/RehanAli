@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Phone,
   MessageCircle,
@@ -11,6 +11,10 @@ import {
 } from 'lucide-react';
 import { contactInfo } from '../data/profileData';
 import { downloadVCard } from '../utils/vcard';
+import {
+  getSavedProfilePhoto,
+  subscribeProfilePhoto,
+} from '../utils/photoState';
 
 interface HeaderProps {
   onOpenCV: () => void;
@@ -20,6 +24,12 @@ interface HeaderProps {
 export const Header: React.FC<HeaderProps> = ({ onOpenCV, currentSection }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [phoneDropdownOpen, setPhoneDropdownOpen] = useState(false);
+  const [profilePhoto, setProfilePhoto] = useState<string | null>(getSavedProfilePhoto);
+
+  useEffect(() => {
+    const unsub = subscribeProfilePhoto((photo) => setProfilePhoto(photo));
+    return unsub;
+  }, []);
 
   const navLinks = [
     { label: 'Summary', href: '#summary' },
@@ -71,10 +81,18 @@ export const Header: React.FC<HeaderProps> = ({ onOpenCV, currentSection }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         {/* Logo / Branding */}
         <a href="#" className="flex items-center gap-3 group focus:outline-none">
-          <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-amber-500 to-amber-700 p-0.5 shadow-md shadow-amber-500/10">
-            <div className="w-full h-full bg-slate-950 rounded-[7px] flex items-center justify-center text-amber-400 font-black tracking-tight text-lg group-hover:text-amber-300 transition-colors">
-              RA
-            </div>
+          <div className="w-10 h-10 rounded-lg overflow-hidden border border-amber-500/70 p-0.5 bg-slate-950 shadow-md shadow-amber-500/10 shrink-0">
+            {profilePhoto ? (
+              <img
+                src={profilePhoto}
+                alt="Rehan Ali"
+                className="w-full h-full object-cover rounded-[6px]"
+              />
+            ) : (
+              <div className="w-full h-full bg-slate-950 rounded-[6px] flex items-center justify-center text-amber-400 font-black tracking-tight text-base group-hover:text-amber-300 transition-colors">
+                RA
+              </div>
+            )}
           </div>
           <div>
             <div className="font-bold text-base sm:text-lg tracking-tight text-white flex items-center gap-2">
@@ -111,7 +129,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenCV, currentSection }) => {
           {/* CV Action Button */}
           <button
             onClick={onOpenCV}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-slate-700 hover:border-amber-500/50 bg-slate-900 text-slate-200 hover:text-white text-xs font-medium transition-all shadow-sm active:scale-95"
+            className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg border border-slate-700 hover:border-amber-500/50 bg-slate-900 text-slate-200 hover:text-white text-xs font-medium transition-all shadow-sm active:scale-95"
             title="View, Print or Download Rehan Ali's CV"
           >
             <FileText className="w-3.5 h-3.5 text-amber-400" />

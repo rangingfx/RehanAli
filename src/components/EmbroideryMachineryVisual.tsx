@@ -1,35 +1,86 @@
 import React, { useState } from 'react';
-import { Cpu, Wrench, Layers, CheckCircle, Sliders, ShieldCheck } from 'lucide-react';
+import {
+  Cpu,
+  Wrench,
+  Layers,
+  CheckCircle,
+  Sliders,
+  ShieldCheck,
+  Maximize2,
+  Factory,
+  Sparkles,
+  Camera,
+} from 'lucide-react';
+import { FACTORY_ACTION_PHOTO } from '../utils/photoState';
+import { PhotoLightboxModal } from './PhotoLightboxModal';
 
-export const EmbroideryMachineryVisual: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<'multihead' | 'needle' | 'control'>('multihead');
+interface EmbroideryMachineryVisualProps {
+  onOpenLightbox?: (src: string, title: string, subtitle: string) => void;
+}
+
+export const EmbroideryMachineryVisual: React.FC<EmbroideryMachineryVisualProps> = ({
+  onOpenLightbox,
+}) => {
+  const [activeTab, setActiveTab] = useState<'factory' | 'multihead' | 'needle' | 'control'>('factory');
+  const [isLocalLightboxOpen, setIsLocalLightboxOpen] = useState(false);
+
+  const handleOpenPhoto = () => {
+    if (onOpenLightbox) {
+      onOpenLightbox(
+        FACTORY_ACTION_PHOTO,
+        'Rehan Ali — Industrial Multi-Head Embroidery Machine in Operation',
+        'Live on-site textile factory production, monitoring computerized multi-head stitch alignment and thread tension.'
+      );
+    } else {
+      setIsLocalLightboxOpen(true);
+    }
+  };
 
   return (
-    <div className="relative rounded-2xl bg-slate-950/80 border border-slate-800 p-4 sm:p-6 shadow-2xl overflow-hidden backdrop-blur-sm">
+    <div className="relative rounded-2xl bg-slate-950/90 border border-slate-800 p-4 sm:p-5 shadow-2xl overflow-hidden backdrop-blur-sm">
       {/* Subtle technical grid background */}
       <div
-        className="absolute inset-0 opacity-[0.04] pointer-events-none"
+        className="absolute inset-0 opacity-[0.03] pointer-events-none"
         style={{
           backgroundImage: `linear-gradient(to right, #ffffff 1px, transparent 1px), linear-gradient(to bottom, #ffffff 1px, transparent 1px)`,
           backgroundSize: '24px 24px',
         }}
       />
 
-      {/* Header bar of the visual container */}
-      <div className="flex flex-wrap items-center justify-between gap-3 pb-4 mb-4 border-b border-slate-800/80 relative z-10">
+      {/* Header bar */}
+      <div className="flex flex-wrap items-center justify-between gap-2.5 pb-3.5 mb-3.5 border-b border-slate-800/80 relative z-10">
         <div className="flex items-center gap-2">
           <div className="flex gap-1.5">
             <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
             <span className="w-2.5 h-2.5 rounded-full bg-amber-500/80"></span>
             <span className="w-2.5 h-2.5 rounded-full bg-slate-700"></span>
           </div>
-          <span className="text-xs font-mono font-bold tracking-wider text-slate-300 uppercase">
-            SPEC // INDUSTRIAL MULTI-HEAD SCHEMATIC
+          <span className="text-xs font-mono font-bold tracking-wider text-slate-300 uppercase flex items-center gap-1.5">
+            {activeTab === 'factory' ? (
+              <>
+                <Factory className="w-3.5 h-3.5 text-amber-400" />
+                <span>VERIFIED FACTORY FLOOR OPERATION</span>
+              </>
+            ) : (
+              <span>SPEC // TECHNICAL MACHINERY HUD</span>
+            )}
           </span>
         </div>
 
         {/* View Mode Switcher */}
-        <div className="flex items-center bg-slate-900 border border-slate-800 rounded-lg p-0.5 text-[11px] font-medium">
+        <div className="flex flex-wrap items-center bg-slate-900 border border-slate-800 rounded-lg p-0.5 text-[11px] font-medium">
+          <button
+            onClick={() => setActiveTab('factory')}
+            className={`flex items-center gap-1 px-2.5 py-1 rounded-md transition-all ${
+              activeTab === 'factory'
+                ? 'bg-amber-500/20 text-amber-300 border border-amber-500/30 font-semibold shadow-sm'
+                : 'text-slate-400 hover:text-slate-200'
+            }`}
+            title="Real on-site photo of Rehan Ali operating the machine"
+          >
+            <Camera className="w-3 h-3 text-amber-400" />
+            <span>Live Action</span>
+          </button>
           <button
             onClick={() => setActiveTab('multihead')}
             className={`px-2.5 py-1 rounded-md transition-all ${
@@ -38,7 +89,7 @@ export const EmbroideryMachineryVisual: React.FC = () => {
                 : 'text-slate-400 hover:text-slate-200'
             }`}
           >
-            Multi-Head Array
+            Schematic
           </button>
           <button
             onClick={() => setActiveTab('needle')}
@@ -48,7 +99,7 @@ export const EmbroideryMachineryVisual: React.FC = () => {
                 : 'text-slate-400 hover:text-slate-200'
             }`}
           >
-            Needle Bar & Tension
+            Needle Bar
           </button>
           <button
             onClick={() => setActiveTab('control')}
@@ -63,8 +114,64 @@ export const EmbroideryMachineryVisual: React.FC = () => {
         </div>
       </div>
 
-      {/* Main SVG Schematic */}
-      <div className="relative z-10 w-full flex items-center justify-center min-h-[290px] sm:min-h-[340px]">
+      {/* Main Display Area */}
+      <div className="relative z-10 w-full flex items-center justify-center min-h-[290px] sm:min-h-[350px]">
+        {/* FACTORY ACTION REAL PHOTO VIEW */}
+        {activeTab === 'factory' && (
+          <div className="relative w-full rounded-xl overflow-hidden group border border-slate-800 bg-slate-950 shadow-inner">
+            <div className="relative aspect-[16/11] sm:aspect-[16/10] w-full overflow-hidden bg-slate-900">
+              <img
+                src={FACTORY_ACTION_PHOTO}
+                alt="Rehan Ali operating industrial computerized embroidery machine"
+                className="w-full h-full object-cover object-center group-hover:scale-[1.02] transition-transform duration-500"
+              />
+              {/* Subtle gradient overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent pointer-events-none" />
+
+              {/* Top HUD Badges */}
+              <div className="absolute top-3 left-3 right-3 flex items-center justify-between pointer-events-none">
+                <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-slate-950/80 backdrop-blur-md border border-slate-700/80 text-[10px] font-mono font-bold text-amber-400 shadow-lg">
+                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping" />
+                  <span>ON-SITE // PRODUCTION FLOOR</span>
+                </div>
+
+                <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-slate-950/80 backdrop-blur-md border border-slate-700/80 text-[10px] font-mono font-medium text-slate-300 shadow-lg">
+                  <span>TAJIMA & BARUDAN CLASS</span>
+                </div>
+              </div>
+
+              {/* Expand Lightbox Button */}
+              <button
+                onClick={handleOpenPhoto}
+                className="absolute top-3 right-3 sm:top-auto sm:bottom-3 sm:right-3 p-2 rounded-lg bg-slate-950/85 hover:bg-amber-500 hover:text-slate-950 text-slate-300 border border-slate-700/80 hover:border-amber-400 transition-all shadow-xl active:scale-95 group/btn"
+                title="Click to inspect full resolution photograph"
+              >
+                <Maximize2 className="w-4 h-4 transition-transform group-hover/btn:scale-110" />
+              </button>
+
+              {/* Bottom Caption Overlay */}
+              <div
+                onClick={handleOpenPhoto}
+                className="absolute bottom-0 left-0 right-0 p-3 sm:p-4 bg-gradient-to-t from-slate-950 via-slate-950/85 to-transparent cursor-pointer"
+              >
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="px-2 py-0.5 rounded text-[10px] font-bold font-mono uppercase bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+                    Live Operation
+                  </span>
+                  <span className="text-xs font-mono text-slate-400">
+                    Multi-Head Synchronization
+                  </span>
+                </div>
+                <h4 className="text-sm sm:text-base font-bold text-white group-hover:text-amber-300 transition-colors">
+                  Rehan Ali at the Computerized Multi-Head Control Station
+                </h4>
+                <p className="text-[11px] sm:text-xs text-slate-300 line-clamp-1 mt-0.5 font-normal">
+                  Supervising synchronized needle heads, thread tension cones, and real-time embroidery fabric feed.
+                </p>
+              </div>
+            </div>
+          </div>
+        )}
         {activeTab === 'multihead' && (
           <svg
             viewBox="0 0 600 360"
@@ -335,6 +442,16 @@ export const EmbroideryMachineryVisual: React.FC = () => {
           <span>Zero-Defect QC</span>
         </div>
       </div>
+
+      {/* Fallback local Lightbox Modal */}
+      <PhotoLightboxModal
+        isOpen={isLocalLightboxOpen}
+        onClose={() => setIsLocalLightboxOpen(false)}
+        imageSrc={FACTORY_ACTION_PHOTO}
+        title="Rehan Ali — Industrial Multi-Head Embroidery Machine in Operation"
+        subtitle="Live on-site textile factory production, monitoring computerized multi-head stitch alignment and thread tension."
+        badge="ON-SITE VERIFICATION"
+      />
     </div>
   );
 };
