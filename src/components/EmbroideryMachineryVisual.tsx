@@ -180,27 +180,27 @@ export const EmbroideryMachineryVisual: React.FC<EmbroideryMachineryVisualProps>
           >
             <defs>
               <linearGradient id="beamGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stop-color="#334155" />
-                <stop offset="50%" stop-color="#1E293B" />
-                <stop offset="100%" stop-color="#0F172A" />
+                <stop offset="0%" stopColor="#334155" />
+                <stop offset="50%" stopColor="#1E293B" />
+                <stop offset="100%" stopColor="#0F172A" />
               </linearGradient>
               <linearGradient id="amberThread" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stop-color="#F59E0B" />
-                <stop offset="50%" stop-color="#FCD34D" />
-                <stop offset="100%" stop-color="#D97706" />
+                <stop offset="0%" stopColor="#F59E0B" />
+                <stop offset="50%" stopColor="#FCD34D" />
+                <stop offset="100%" stopColor="#D97706" />
               </linearGradient>
             </defs>
 
             {/* Heavy Main Machine Beam */}
-            <rect x="20" y="40" width="560" height="42" rx="4" fill="url(#beamGrad)" stroke="#475569" stroke-width="1.5" />
-            <line x1="30" y1="61" x2="570" y2="61" stroke="#64748B" stroke-width="1" stroke-dasharray="8 4" />
+            <rect x="20" y="40" width="560" height="42" rx="4" fill="url(#beamGrad)" stroke="#475569" strokeWidth="1.5" />
+            <line x1="30" y1="61" x2="570" y2="61" stroke="#64748B" strokeWidth="1" strokeDasharray="8 4" />
 
             {/* Thread Stand Rails (Top) */}
-            <line x1="40" y1="16" x2="560" y2="16" stroke="#475569" stroke-width="2" />
+            <line x1="40" y1="16" x2="560" y2="16" stroke="#475569" strokeWidth="2" />
             {[80, 140, 200, 260, 320, 380, 440, 500].map((x, i) => (
               <g key={i}>
-                <line x1={x} y1="16" x2={x} y2="40" stroke="#64748B" stroke-width="1.5" />
-                <circle cx={x} cy="14" r="5" fill="#334155" stroke="#F59E0B" stroke-width="1" />
+                <line x1={x} y1="16" x2={x} y2="40" stroke="#64748B" strokeWidth="1.5" />
+                <circle cx={x} cy="14" r="5" fill="#334155" stroke="#F59E0B" strokeWidth="1" />
                 {/* Thread cones */}
                 <path d={`M ${x - 6} 22 L ${x + 6} 22 L ${x + 4} 34 L ${x - 4} 34 Z`} fill={i % 2 === 0 ? "#F59E0B" : "#E2E8F0"} />
               </g>
@@ -210,7 +210,7 @@ export const EmbroideryMachineryVisual: React.FC<EmbroideryMachineryVisualProps>
             {[70, 200, 330, 460].map((hx, idx) => (
               <g key={idx} className="transition-transform duration-300 hover:translate-y-0.5">
                 {/* Head Housing */}
-                <rect x={hx} y="80" width="80" height="135" rx="5" fill="#1E293B" stroke="#475569" stroke-width="1.5" />
+                <rect x={hx} y="80" width="80" height="135" rx="5" fill="#1E293B" stroke="#475569" strokeWidth="1.5" />
                 
                 {/* Head Label */}
                 <rect x={hx + 10} y="86" width="60" height="14" rx="2" fill="#0F172A" />
@@ -219,32 +219,32 @@ export const EmbroideryMachineryVisual: React.FC<EmbroideryMachineryVisualProps>
                 </text>
 
                 {/* Rotary Tension Knobs */}
-                <circle cx={hx + 25} cy="120" r="10" fill="#0F172A" stroke="#F59E0B" stroke-width="1.5" />
-                <circle cx={hx + 55} cy="120" r="10" fill="#0F172A" stroke="#F59E0B" stroke-width="1.5" />
+                <circle cx={hx + 25} cy="120" r="10" fill="#0F172A" stroke="#F59E0B" strokeWidth="1.5" />
+                <circle cx={hx + 55} cy="120" r="10" fill="#0F172A" stroke="#F59E0B" strokeWidth="1.5" />
                 <circle cx={hx + 25} cy="120" r="3" fill="#F59E0B" />
                 <circle cx={hx + 55} cy="120" r="3" fill="#F59E0B" />
 
                 {/* Take-Up Levers */}
-                <path d={`M ${hx + 30} 145 L ${hx + 40} 138 L ${hx + 50} 145`} fill="none" stroke="#E2E8F0" stroke-width="2" />
+                <path d={`M ${hx + 30} 145 L ${hx + 40} 138 L ${hx + 50} 145`} fill="none" stroke="#E2E8F0" strokeWidth="2" />
 
                 {/* Lower Needle Bar Array */}
                 <rect x={hx + 20} y="170" width="40" height="35" rx="2" fill="#0F172A" stroke="#334155" />
-                <line x1={hx + 30} y1="170" x2={hx + 30} y2="215" stroke="#94A3B8" stroke-width="1.5" />
-                <line x1={hx + 40} y1="170" x2={hx + 40} y2="225" stroke="#F8FAFC" stroke-width="2" />
-                <line x1={hx + 50} y1="170" x2={hx + 50} y2="215" stroke="#94A3B8" stroke-width="1.5" />
+                <line x1={hx + 30} y1="170" x2={hx + 30} y2="215" stroke="#94A3B8" strokeWidth="1.5" />
+                <line x1={hx + 40} y1="170" x2={hx + 40} y2="225" stroke="#F8FAFC" strokeWidth="2" />
+                <line x1={hx + 50} y1="170" x2={hx + 50} y2="215" stroke="#94A3B8" strokeWidth="1.5" />
 
                 {/* Needle Point & Active Thread */}
                 <polygon points={`${hx + 38},225 ${hx + 42},225 ${hx + 40},234`} fill="#F8FAFC" />
-                <path d={`M ${hx + 40} 228 Q ${hx + 45} 242, ${hx + 40} 250`} fill="none" stroke="url(#amberThread)" stroke-width="1.5" />
+                <path d={`M ${hx + 40} 228 Q ${hx + 45} 242, ${hx + 40} 250`} fill="none" stroke="url(#amberThread)" strokeWidth="1.5" />
               </g>
             ))}
 
             {/* Industrial Flatbed & Precision Embroidery Frame */}
-            <rect x="20" y="248" width="560" height="92" rx="4" fill="#0B1120" stroke="#334155" stroke-width="1.5" />
+            <rect x="20" y="248" width="560" height="92" rx="4" fill="#0B1120" stroke="#334155" strokeWidth="1.5" />
 
             {/* Fabric Base Plate (Navy textile texture) */}
             <rect x="40" y="258" width="520" height="72" rx="3" fill="#0F172A" stroke="#1E293B" />
-            <line x1="40" y1="294" x2="560" y2="294" stroke="#1E293B" stroke-width="1" stroke-dasharray="4 4" />
+            <line x1="40" y1="294" x2="560" y2="294" stroke="#1E293B" strokeWidth="1" strokeDasharray="4 4" />
 
             {/* Precision Embroidery Stitches (Gold satin motif on fabric) */}
             <g>
@@ -252,15 +252,15 @@ export const EmbroideryMachineryVisual: React.FC<EmbroideryMachineryVisualProps>
                 d="M 60 294 Q 80 278, 110 294 T 160 294 T 210 294 T 260 294 T 310 294 T 360 294 T 410 294 T 460 294 T 510 294"
                 fill="none"
                 stroke="url(#amberThread)"
-                stroke-width="2.5"
-                stroke-dasharray="3 1.5"
+                strokeWidth="2.5"
+                strokeDasharray="3 1.5"
               />
               <path
                 d="M 60 294 Q 80 310, 110 294 T 160 294 T 210 294 T 260 294 T 310 294 T 360 294 T 410 294 T 460 294 T 510 294"
                 fill="none"
                 stroke="#FCD34D"
-                stroke-width="1.5"
-                stroke-dasharray="2 2"
+                strokeWidth="1.5"
+                strokeDasharray="2 2"
               />
             </g>
 
@@ -281,23 +281,23 @@ export const EmbroideryMachineryVisual: React.FC<EmbroideryMachineryVisualProps>
           >
             <defs>
               <linearGradient id="steelBar" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stop-color="#64748B" />
-                <stop offset="50%" stop-color="#F8FAFC" />
-                <stop offset="100%" stop-color="#475569" />
+                <stop offset="0%" stopColor="#64748B" />
+                <stop offset="50%" stopColor="#F8FAFC" />
+                <stop offset="100%" stopColor="#475569" />
               </linearGradient>
             </defs>
 
             {/* Tension Disc Assembly Closeup */}
             <g transform="translate(40, 20)">
-              <rect x="0" y="0" width="220" height="310" rx="8" fill="#0F172A" stroke="#334155" stroke-width="1.5" />
+              <rect x="0" y="0" width="220" height="310" rx="8" fill="#0F172A" stroke="#334155" strokeWidth="1.5" />
               <text x="110" y="28" textAnchor="middle" fill="#F59E0B" fontSize="12" fontWeight="bold" fontFamily="monospace">
                 TENSION ASSEMBLY
               </text>
-              <line x1="20" y1="40" x2="200" y2="40" stroke="#1E293B" stroke-width="1" />
+              <line x1="20" y1="40" x2="200" y2="40" stroke="#1E293B" strokeWidth="1" />
 
               {/* Rotary Tension Dial */}
-              <circle cx="110" cy="110" r="48" fill="#1E293B" stroke="#475569" stroke-width="3" />
-              <circle cx="110" cy="110" r="38" fill="#0B1120" stroke="#F59E0B" stroke-width="2" stroke-dasharray="6 3" />
+              <circle cx="110" cy="110" r="48" fill="#1E293B" stroke="#475569" strokeWidth="3" />
+              <circle cx="110" cy="110" r="38" fill="#0B1120" stroke="#F59E0B" strokeWidth="2" strokeDasharray="6 3" />
               {/* Dial tick marks */}
               {[0, 45, 90, 135, 180, 225, 270, 315].map((deg, i) => (
                 <line
@@ -307,16 +307,16 @@ export const EmbroideryMachineryVisual: React.FC<EmbroideryMachineryVisualProps>
                   x2={110 + 44 * Math.cos((deg * Math.PI) / 180)}
                   y2={110 + 44 * Math.sin((deg * Math.PI) / 180)}
                   stroke="#94A3B8"
-                  stroke-width="1.5"
+                  strokeWidth="1.5"
                 />
               ))}
-              <circle cx="110" cy="110" r="14" fill="#334155" stroke="#F59E0B" stroke-width="1.5" />
+              <circle cx="110" cy="110" r="14" fill="#334155" stroke="#F59E0B" strokeWidth="1.5" />
               <text x="110" y="114" textAnchor="middle" fill="#FFFFFF" fontSize="11" fontWeight="bold">
                 #3.8
               </text>
 
               {/* Check Spring */}
-              <path d="M 68 120 Q 60 160, 75 190 T 110 205" fill="none" stroke="#F59E0B" stroke-width="2.5" />
+              <path d="M 68 120 Q 60 160, 75 190 T 110 205" fill="none" stroke="#F59E0B" strokeWidth="2.5" />
               <text x="110" y="235" textAnchor="middle" fill="#94A3B8" fontSize="10" fontFamily="sans-serif">
                 Calibrated Check Spring
               </text>
@@ -331,11 +331,11 @@ export const EmbroideryMachineryVisual: React.FC<EmbroideryMachineryVisualProps>
 
             {/* Needle & Rotary Hook Alignment Schematic */}
             <g transform="translate(300, 20)">
-              <rect x="0" y="0" width="260" height="310" rx="8" fill="#0F172A" stroke="#334155" stroke-width="1.5" />
+              <rect x="0" y="0" width="260" height="310" rx="8" fill="#0F172A" stroke="#334155" strokeWidth="1.5" />
               <text x="130" y="28" textAnchor="middle" fill="#F59E0B" fontSize="12" fontWeight="bold" fontFamily="monospace">
                 NEEDLE & ROTARY HOOK TIMING
               </text>
-              <line x1="20" y1="40" x2="240" y2="40" stroke="#1E293B" stroke-width="1" />
+              <line x1="20" y1="40" x2="240" y2="40" stroke="#1E293B" strokeWidth="1" />
 
               {/* Vertical Needle Bar */}
               <rect x="124" y="55" width="12" height="150" rx="2" fill="url(#steelBar)" stroke="#334155" />
@@ -347,7 +347,7 @@ export const EmbroideryMachineryVisual: React.FC<EmbroideryMachineryVisualProps>
               <ellipse cx="130" cy="226" rx="2" ry="4" fill="#0B1120" />
 
               {/* Thread through Eye */}
-              <path d="M 90 140 L 128 226 L 155 250" fill="none" stroke="#F59E0B" stroke-width="2" />
+              <path d="M 90 140 L 128 226 L 155 250" fill="none" stroke="#F59E0B" strokeWidth="2" />
 
               {/* Fabric Layer */}
               <rect x="40" y="235" width="180" height="8" rx="1" fill="#3B82F6" opacity="0.8" />
@@ -362,8 +362,8 @@ export const EmbroideryMachineryVisual: React.FC<EmbroideryMachineryVisualProps>
               </text>
 
               {/* Rotary Hook Point passing needle scarf */}
-              <circle cx="155" cy="265" r="28" fill="none" stroke="#64748B" stroke-width="2" stroke-dasharray="4 2" />
-              <path d="M 145 240 Q 155 255, 133 227" fill="none" stroke="#10B981" stroke-width="2" />
+              <circle cx="155" cy="265" r="28" fill="none" stroke="#64748B" strokeWidth="2" strokeDasharray="4 2" />
+              <path d="M 145 240 Q 155 255, 133 227" fill="none" stroke="#10B981" strokeWidth="2" />
               <circle cx="132" cy="227" r="3" fill="#10B981" />
               <text x="130" y="295" textAnchor="middle" fill="#10B981" fontSize="9" fontFamily="monospace" fontWeight="bold">
                 HOOK CLEARANCE: 0.05mm
