@@ -59,3 +59,15 @@ export interface EducationItem {
   institution: string;
   description: string;
 }
+
+export interface EmbroideryMachineBrand {
+  id: string;
+  name: string;
+  country: string;
+  flag: string;
+  category: string;
+  mastery: string;
+  years: string;
+  description: string;
+  tier?: 'Budget / Industrial' | 'Industrial' | 'Commercial' | 'Multi-Head Production' | 'High-End / High-Speed';
+}

@@ -38,6 +38,7 @@ import {
   educationAndTraining,
   whyHirePoints,
   targetJobRoles,
+  embroideryMachineBrands,
 } from '../data/profileData';
 import { downloadVCard } from '../utils/vcard';
 import {
@@ -80,13 +81,7 @@ export const PrintableCVView: React.FC<PrintableCVViewProps> = ({ onBack }) => {
     });
   };
 
-  const machineryMastery = [
-    { name: 'Barudan (Japan)', type: 'Multi-Head Computerized', mastery: '100%', years: '10+ Yrs' },
-    { name: 'Tajima (Japan)', type: 'Multi-Head High Speed', mastery: '100%', years: '10+ Yrs' },
-    { name: 'SWF (Korea)', type: 'Industrial Embroidery', mastery: '95%', years: '8+ Yrs' },
-    { name: 'Feiya (China)', type: 'Industrial Multi-Head', mastery: '95%', years: '8+ Yrs' },
-    { name: 'Brother & ZSK Systems', type: 'Specialty Embroidery', mastery: '90%', years: '6+ Yrs' },
-  ];
+  const machineryMastery = embroideryMachineBrands;
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 py-6 sm:py-10 px-3 sm:px-6">
@@ -377,24 +372,30 @@ export const PrintableCVView: React.FC<PrintableCVViewProps> = ({ onBack }) => {
             <div className="lg:col-span-4 print:col-span-4 space-y-6">
               
               {/* Machinery Mastery Card */}
-              <section className="rounded-xl border border-slate-200 bg-slate-50/70 p-4 break-inside-avoid">
-                <h2 className="text-xs font-black uppercase tracking-wider text-slate-900 border-b border-slate-300 pb-1.5 mb-3 flex items-center gap-1.5">
-                  <Cpu className="w-3.5 h-3.5 text-amber-700" />
-                  <span>Embroidery Machine Skills</span>
-                </h2>
+              <section className="rounded-xl border border-slate-200 bg-slate-50/70 p-3.5 sm:p-4 break-inside-avoid">
+                <div className="border-b border-slate-300 pb-1.5 mb-3 flex items-center justify-between">
+                  <h2 className="text-xs font-black uppercase tracking-wider text-slate-900 flex items-center gap-1.5">
+                    <Cpu className="w-3.5 h-3.5 text-amber-700" />
+                    <span>Embroidery Machine Mastery</span>
+                  </h2>
+                  <span className="text-[10px] font-mono text-slate-500 font-bold">10 BRANDS</span>
+                </div>
                 
-                <div className="space-y-2.5 text-[11px]">
-                  {machineryMastery.map((m, idx) => (
-                    <div key={idx} className="space-y-0.5">
-                      <h3 className="flex items-center justify-between font-bold text-slate-900">
-                        <span>{m.name}</span>
+                <div className="space-y-2 text-[11px]">
+                  {machineryMastery.map((m) => (
+                    <div key={m.id} className="space-y-0.5 pb-1.5 border-b border-slate-200/60 last:border-b-0 last:pb-0">
+                      <div className="flex items-center justify-between font-bold text-slate-900 text-xs">
+                        <span className="flex items-center gap-1">
+                          <span>{m.name}</span>
+                          <span className="text-[11px]" title={m.country}>{m.flag}</span>
+                        </span>
                         <span className="text-[10px] font-mono text-amber-800 font-extrabold">{m.years}</span>
-                      </h3>
-                      <div className="flex items-center justify-between text-[10px] text-slate-500">
-                        <span>{m.type}</span>
-                        <span className="text-emerald-700 font-semibold">{m.mastery}</span>
                       </div>
-                      <div className="w-full bg-slate-200 h-1.5 rounded-full overflow-hidden">
+                      <div className="flex items-center justify-between text-[10px] text-slate-500">
+                        <span className="truncate pr-1">{m.category}</span>
+                        <span className="text-emerald-700 font-semibold shrink-0">{m.mastery}</span>
+                      </div>
+                      <div className="w-full bg-slate-200 h-1 rounded-full overflow-hidden">
                         <div
                           className="bg-amber-600 h-full rounded-full"
                           style={{ width: m.mastery }}
@@ -667,23 +668,23 @@ export const PrintableCVView: React.FC<PrintableCVViewProps> = ({ onBack }) => {
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
                 <div className="bg-slate-50 p-3 rounded-lg border border-slate-200">
-                  <div className="font-bold text-slate-900 mb-1.5">Machine Operations & Mechanics:</div>
+                  <div className="font-bold text-slate-900 mb-1.5">Machine Brands & Operational Mastery:</div>
                   <ul className="space-y-1 text-slate-700 text-[11px]">
-                    <li>• Multi-head computerized embroidery machines (Barudan, Tajima, SWF, Feiya)</li>
-                    <li>• Hook & needle timing calibration with 0.05mm precision clearance</li>
-                    <li>• Diagnostic mechanical troubleshooting and part replacement</li>
-                    <li>• Preventive maintenance, belt tensioning and rotary deburring</li>
-                    <li>• Downtime reduction & zero-loop tension balancing</li>
+                    <li>• <strong>Chinese Industrial Brands:</strong> Yuemei (Budget/Industrial), SWM (Industrial), Humble (Commercial), AA Champion, Great (Multi-Head Production), Pro Maker, Feiya</li>
+                    <li>• <strong>Japanese & Korean Systems:</strong> Barudan (10+ Yrs), Tajima (10+ Yrs), SWF (8+ Yrs)</li>
+                    <li>• <strong>Mechanical Timing:</strong> Hook & needle timing calibration with 0.05mm clearance</li>
+                    <li>• <strong>Troubleshooting:</strong> Diagnostic repair, board alarms, part replacement & zero loop</li>
+                    <li>• <strong>Preventive Care:</strong> Daily lubrication, rotary deburring, lint clearance & belts</li>
                   </ul>
                 </div>
                 <div className="bg-slate-50 p-3 rounded-lg border border-slate-200">
-                  <div className="font-bold text-slate-900 mb-1.5">Quality Assurance & Operations:</div>
+                  <div className="font-bold text-slate-900 mb-1.5">Quality Assurance & Floor Operations:</div>
                   <ul className="space-y-1 text-slate-700 text-[11px]">
                     <li>• Fabric selection, backing stabilizer hooping and puckering prevention</li>
-                    <li>• Precision stitch quality inspection and defect elimination</li>
-                    <li>• Digital embroidery pattern layout interpretation and coordinate zeroing</li>
-                    <li>• Target achievement under tight deadlines for export & luxury lines</li>
-                    <li>• Junior operator training, team discipline and machine safety protocols</li>
+                    <li>• Precision stitch quality inspection and defect elimination (zero skipped stitches)</li>
+                    <li>• Digital embroidery pattern layout interpretation, coordinate zeroing & color stops</li>
+                    <li>• High-speed target achievement under tight deadlines for export & luxury lines</li>
+                    <li>• Junior operator training, shift handovers, team discipline and safety protocols</li>
                   </ul>
                 </div>
               </div>

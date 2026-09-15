@@ -6,6 +6,7 @@ import {
   TechnicalExpertiseItem,
   CareerHighlight,
   EducationItem,
+  EmbroideryMachineBrand,
 } from '../types';
 
 export const contactInfo: ContactInfo = {
@@ -39,7 +40,7 @@ export const heroContent = {
   titleLine1: 'Senior Embroidery Machine Operator',
   titleLine2: '& Mechanical Master',
   supportingText:
-    'Highly skilled and dedicated embroidery machine operator and mechanical specialist with 10+ years of hands-on experience in textile and apparel production, specializing in computerized embroidery machinery, machine troubleshooting, maintenance, production quality, and precision embroidery.',
+    'Highly skilled and dedicated embroidery machine operator and mechanical specialist with 10+ years of hands-on experience in textile and apparel production, specializing in computerized embroidery machinery (Yuemei, SWM, Humble, AA Champion, Great, Pro Maker, Barudan, Tajima, SWF), machine troubleshooting, maintenance, and production quality control.',
   status: 'OPEN TO JOB OPPORTUNITIES',
 };
 
@@ -47,9 +48,10 @@ export const professionalSummary = {
   heading: 'Professional Summary',
   paragraphs: [
     'Highly skilled and dedicated Embroidery Machine Operator and Mechanical Master with over a decade of hands-on experience dating back to 2011 in the textile and apparel industry.',
-    'Proven expertise in operating, troubleshooting, maintaining, calibrating, and optimizing complex multi-head embroidery machinery.',
-    'Extensive experience collaborating with premier fashion and garment brands and textile businesses, including Maria.B, Outfitters, Bareeze, Bilal Textile, SWM, Yumie, Shaner, and AkashCollection.pk.',
-    'Known for technical proficiency, mechanical problem-solving, precision embroidery, quality control, and optimizing production workflows.',
+    'Proven expertise in operating, troubleshooting, maintaining, calibrating, and optimizing complex multi-head industrial embroidery machinery.',
+    'Extensive hands-on operational and mechanical mastery across leading industrial machinery brands: Yuemei (Budget / industrial), SWM (Industrial embroidery), Humble (Commercial embroidery), AA Champion (Industrial embroidery), Great (Multi-head production), Pro Maker, Barudan, Tajima, SWF, and Feiya.',
+    'Collaborated with premier fashion and garment brands and textile export houses, including Maria.B, Outfitters, Bareeze, Bilal Textile, Shaner, and AkashCollection.pk.',
+    'Known for technical proficiency, mechanical problem-solving, 0.05mm rotary hook timing calibration, precision thread tension balancing, and optimizing high-capacity production workflows.',
   ],
 };
 
@@ -161,12 +163,14 @@ export const skillCategories: SkillCategory[] = [
     title: 'Machine Operations',
     icon: 'Cpu',
     skills: [
-      'Multi-head embroidery machines',
-      'Computerized embroidery systems',
-      'Machine setup',
-      'Calibration',
-      'Alignment',
-      'Production operation',
+      'Multi-head industrial embroidery machines',
+      'Yuemei, SWM & Humble operations',
+      'AA Champion, Great & Pro Maker systems',
+      'Barudan & Tajima computerized setups',
+      'SWF & Feiya multi-needle machinery',
+      'Computerized control panels (Dahao & Tajima)',
+      'High-speed frame alignment & calibration',
+      'High-capacity mass production operation',
     ],
   },
   {
@@ -174,13 +178,13 @@ export const skillCategories: SkillCategory[] = [
     title: 'Mechanical Expertise',
     icon: 'Wrench',
     skills: [
-      'Machine troubleshooting',
-      'Preventive maintenance',
-      'Mechanical repair',
-      'Part replacement',
-      'Machine adjustment',
-      'Fault diagnosis',
-      'Downtime reduction',
+      'Rotary hook & needle timing (0.05mm calibration)',
+      'Machine troubleshooting & fault diagnosis',
+      'Preventive maintenance & lubrication schedule',
+      'Mechanical repair & worn part replacement',
+      'Needle bar & presser foot synchronization',
+      'Thread tension disc & check spring balancing',
+      'Production downtime reduction & quick fixes',
     ],
   },
   {
@@ -188,13 +192,12 @@ export const skillCategories: SkillCategory[] = [
     title: 'Production & Quality Control',
     icon: 'CheckCircle2',
     skills: [
-      'Fabric selection',
-      'Stabilizer application',
-      'Thread tension management',
-      'Stitch quality inspection',
-      'Defect detection',
-      'Production monitoring',
-      'Quality assurance',
+      'Fabric selection & stabilizer backing matching',
+      'Thread tension management (zero-loop tuning)',
+      'Stitch quality inspection & puckering prevention',
+      'Defect detection (skipped stitches, broken threads)',
+      'Production monitoring & shift output logging',
+      'Luxury apparel & bulk industrial quality assurance',
     ],
   },
   {
@@ -202,12 +205,12 @@ export const skillCategories: SkillCategory[] = [
     title: 'Design & Pattern Interpretation',
     icon: 'Layers',
     skills: [
-      'Digital embroidery patterns',
-      'Design layout interpretation',
-      'Color coordination',
-      'Pattern scaling',
-      'Fabric placement',
-      'Trial production',
+      'Digital embroidery pattern reading (DST, DSB)',
+      'Design layout interpretation & coordinate zeroing',
+      'Color stop sequencing & multi-cone setup',
+      'Pattern scaling & embroidery field placement',
+      'Specialty attachments (sequin, cording, boring)',
+      'Pre-production trial runs & strike-offs',
     ],
   },
   {
@@ -215,13 +218,12 @@ export const skillCategories: SkillCategory[] = [
     title: 'Professional Skills',
     icon: 'ShieldCheck',
     skills: [
-      'Attention to detail',
-      'Hand-eye coordination',
-      'Teamwork',
-      'Time management',
-      'Problem solving',
-      'Production discipline',
-      'Fast-paced work environments',
+      'Meticulous attention to stitch detail',
+      'Hand-eye coordination & rapid thread knotting',
+      'Floor teamwork & junior operator mentoring',
+      'Punctual time management & shift discipline',
+      'Fast mechanical problem solving under pressure',
+      'Industrial safety & machine floor standards',
     ],
   },
 ];
@@ -365,16 +367,16 @@ export const educationAndTraining: EducationItem[] = [
 ];
 
 export const whyHirePoints: string[] = [
-  '10+ years practical industry experience',
-  'Strong embroidery machine operation skills',
-  'Advanced mechanical troubleshooting ability',
-  'Preventive maintenance experience',
-  'Excellent attention to embroidery quality',
-  'Experience with different textile materials',
-  'Ability to work under production pressure',
-  'Fast problem solving',
-  'Team-oriented professional',
-  'Ready for new job opportunities',
+  '10+ years continuous hands-on industrial embroidery experience',
+  'Versatile brand operation: Yuemei, SWM, Humble, AA Champion, Great, Pro Maker, Barudan, Tajima & SWF',
+  'Expertise in both Budget / Industrial and High-End Multi-Head machinery',
+  'Advanced mechanical troubleshooting & 0.05mm rotary hook timing calibration',
+  'Proactive preventive maintenance & continuous downtime reduction',
+  'Zero-defect quality inspection & thread tension balancing',
+  'Deep familiarity with diverse fabrics: lawn, silk, chiffon, denim, knits & heavy wool',
+  'Proven high-speed output under intense seasonal production deadlines',
+  'Team player, active mentor, and disciplined shift operator',
+  'Available for immediate full-time employment & production trials',
 ];
 
 export const targetJobRoles: string[] = [
@@ -382,8 +384,131 @@ export const targetJobRoles: string[] = [
   'Senior Embroidery Machine Operator',
   'Embroidery Machine Technician',
   'Embroidery Mechanical Technician',
-  'Textile Production',
-  'Garment Production',
-  'Industrial Embroidery',
-  'Textile Machinery Maintenance',
+  'Textile Production Specialist',
+  'Garment Embroidery Supervisor',
+  'Industrial Embroidery Master',
+  'Textile Machinery Maintenance Specialist',
+];
+
+export const embroideryMachineBrands: EmbroideryMachineBrand[] = [
+  {
+    id: 'yuemei',
+    name: 'Yuemei',
+    country: 'China',
+    flag: '🇨🇳',
+    category: 'Budget / industrial',
+    mastery: '95%',
+    years: '8+ Yrs',
+    description:
+      'Budget & industrial multi-head embroidery machines, widely relied on for high-volume commercial apparel runs. Expert in Dahao computerized control, frame tensioning, and speed optimization.',
+    tier: 'Budget / Industrial',
+  },
+  {
+    id: 'swm',
+    name: 'SWM',
+    country: 'China',
+    flag: '🇨🇳',
+    category: 'Industrial embroidery',
+    mastery: '95%',
+    years: '8+ Yrs',
+    description:
+      'Heavy-duty industrial embroidery machinery engineered for continuous round-the-clock factory shifts. Skilled in drive motor alignment, frame synchronization, and minimal vibration operation.',
+    tier: 'Industrial',
+  },
+  {
+    id: 'humble',
+    name: 'Humble',
+    country: 'China',
+    flag: '🇨🇳',
+    category: 'Commercial embroidery',
+    mastery: '90%',
+    years: '7+ Yrs',
+    description:
+      'Commercial embroidery machinery optimized for flexible garment runs, flat apparel, custom boutique embroidery, and fast turnaround production jobs.',
+    tier: 'Commercial',
+  },
+  {
+    id: 'aa-champion',
+    name: 'AA Champion',
+    country: 'China',
+    flag: '🇨🇳',
+    category: 'Industrial embroidery',
+    mastery: '95%',
+    years: '8+ Yrs',
+    description:
+      'Rugged industrial embroidery machines built for dense thread coverage, sequence stitching, and durable mechanical performance under heavy daily factory workloads.',
+    tier: 'Industrial',
+  },
+  {
+    id: 'great',
+    name: 'Great',
+    country: 'China',
+    flag: '🇨🇳',
+    category: 'Multi-head production',
+    mastery: '95%',
+    years: '8+ Yrs',
+    description:
+      'High-capacity multi-head production systems designed for large yardage fabric rolls, all-over lawn patterns, and synchronized multi-panel garment embroidery.',
+    tier: 'Multi-Head Production',
+  },
+  {
+    id: 'pro-maker',
+    name: 'Pro Maker',
+    country: 'China',
+    flag: '🇨🇳',
+    category: 'Industrial embroidery',
+    mastery: '95%',
+    years: '8+ Yrs',
+    description:
+      'Advanced computerized industrial embroidery machines featuring high-speed stitch capability, precision needle bar actuation, and electronic tension stabilization.',
+    tier: 'Industrial',
+  },
+  {
+    id: 'barudan',
+    name: 'Barudan',
+    country: 'Japan',
+    flag: '🇯🇵',
+    category: 'Multi-Head Computerized',
+    mastery: '100%',
+    years: '10+ Yrs',
+    description:
+      'Japanese gold-standard multi-head embroidery systems. Complete operational mastery including 0.05mm rotary hook clearance, individual head timing, and zero-break calibration.',
+    tier: 'High-End / High-Speed',
+  },
+  {
+    id: 'tajima',
+    name: 'Tajima',
+    country: 'Japan',
+    flag: '🇯🇵',
+    category: 'Multi-Head High Speed',
+    mastery: '100%',
+    years: '10+ Yrs',
+    description:
+      'Top-tier Japanese computerized high-speed multi-head machinery. Precision execution of luxury lawn, intricate multi-color designer patterns, and electronic diagnostics.',
+    tier: 'High-End / High-Speed',
+  },
+  {
+    id: 'swf',
+    name: 'SWF',
+    country: 'Korea',
+    flag: '🇰🇷',
+    category: 'Industrial Embroidery',
+    mastery: '95%',
+    years: '8+ Yrs',
+    description:
+      'Durable Korean industrial multi-head machinery known for dual-function versatility and heavy-gauge fabric handling.',
+    tier: 'Industrial',
+  },
+  {
+    id: 'feiya',
+    name: 'Feiya',
+    country: 'China',
+    flag: '🇨🇳',
+    category: 'Industrial Multi-Head',
+    mastery: '95%',
+    years: '8+ Yrs',
+    description:
+      'Versatile Chinese industrial multi-head systems. Proven track record in rapid maintenance, parts interchangeability, and dependable factory output.',
+    tier: 'Industrial',
+  },
 ];
