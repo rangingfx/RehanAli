@@ -1,14 +1,16 @@
 {
-  "name": "react-example",
+  "name": "rehan-ali-portfolio",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "packageManager": "npm@10.8.2",
   "engines": {
-    "node": ">=20.0.0"
+    "node": ">=20.0.0",
+    "npm": ">=10.8.0"
   },
   "scripts": {
     "dev": "vite --port=3000 --host=0.0.0.0",
+    "install:deps": "npm install",
     "build": "node scripts/generate-pdf.js && vite build",
     "generate-pdf": "node scripts/generate-pdf.js",
     "preview": "vite preview",
