@@ -119,7 +119,7 @@ export const WorkPage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div>
             <div className="text-sm font-bold text-white">Need detailed technical machinery specifications or full CV?</div>
-            <div className="text-xs text-slate-400">View Barudan/Tajima machine calibration details or download the printable CV.</div>
+            <div className="text-xs text-slate-400">View industrial multi-head machine calibration details or download the printable CV.</div>
           </div>
           <div className="flex flex-wrap items-center gap-3">
             <Link

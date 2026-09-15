@@ -186,7 +186,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCV }) => {
                 <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-900/80 border border-slate-800 text-slate-300 text-xs font-mono font-medium">
                   <Award className="w-3.5 h-3.5 text-amber-400" />
                   <span className="text-amber-400 font-bold">10+ YRS</span>
-                  <span>BARUDAN & TAJIMA</span>
+                  <span>MULTI-HEAD INDUSTRIAL</span>
                 </div>
               </div>
             </div>

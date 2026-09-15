@@ -18,11 +18,12 @@ import {
 } from 'lucide-react';
 
 export const MachineryExpertiseSection: React.FC = () => {
-  const [filterRegion, setFilterRegion] = useState<'all' | 'china' | 'japan-korea'>('all');
+  const [filterCategory, setFilterCategory] = useState<'all' | 'industrial' | 'commercial-budget' | 'production'>('all');
 
   const filteredBrands = embroideryMachineBrands.filter((b) => {
-    if (filterRegion === 'china') return b.country === 'China';
-    if (filterRegion === 'japan-korea') return b.country === 'Japan' || b.country === 'Korea';
+    if (filterCategory === 'industrial') return b.category.toLowerCase().includes('industrial') && !b.category.toLowerCase().includes('budget');
+    if (filterCategory === 'commercial-budget') return b.category.toLowerCase().includes('commercial') || b.category.toLowerCase().includes('budget');
+    if (filterCategory === 'production') return b.category.toLowerCase().includes('production');
     return true;
   });
 
@@ -71,16 +72,16 @@ export const MachineryExpertiseSection: React.FC = () => {
                 Embroidery Machine Brands Mastered
               </h2>
               <p className="text-slate-400 text-base mt-2">
-                Operational command and mechanical calibration across leading Chinese industrial & budget machines alongside premier Japanese and Korean multi-head systems.
+                Operational command and mechanical calibration across leading computerized industrial, commercial, and multi-head production systems.
               </p>
             </div>
 
-            {/* Region Filter Tabs */}
+            {/* Category Filter Tabs */}
             <div className="flex flex-wrap gap-1.5 bg-slate-950 border border-slate-800 p-1 rounded-xl self-start md:self-auto text-xs font-medium">
               <button
-                onClick={() => setFilterRegion('all')}
+                onClick={() => setFilterCategory('all')}
                 className={`px-3 py-1.5 rounded-lg transition-all ${
-                  filterRegion === 'all'
+                  filterCategory === 'all'
                     ? 'bg-amber-500 text-slate-950 font-bold shadow'
                     : 'text-slate-400 hover:text-white'
                 }`}
@@ -88,24 +89,34 @@ export const MachineryExpertiseSection: React.FC = () => {
                 All Brands ({embroideryMachineBrands.length})
               </button>
               <button
-                onClick={() => setFilterRegion('china')}
+                onClick={() => setFilterCategory('industrial')}
                 className={`px-3 py-1.5 rounded-lg transition-all ${
-                  filterRegion === 'china'
+                  filterCategory === 'industrial'
                     ? 'bg-amber-500 text-slate-950 font-bold shadow'
                     : 'text-slate-400 hover:text-white'
                 }`}
               >
-                China 🇨🇳 ({embroideryMachineBrands.filter((b) => b.country === 'China').length})
+                Industrial (3)
               </button>
               <button
-                onClick={() => setFilterRegion('japan-korea')}
+                onClick={() => setFilterCategory('commercial-budget')}
                 className={`px-3 py-1.5 rounded-lg transition-all ${
-                  filterRegion === 'japan-korea'
+                  filterCategory === 'commercial-budget'
                     ? 'bg-amber-500 text-slate-950 font-bold shadow'
                     : 'text-slate-400 hover:text-white'
                 }`}
               >
-                Japan &amp; Korea 🇯🇵🇰🇷 ({embroideryMachineBrands.filter((b) => b.country !== 'China').length})
+                Commercial &amp; Budget (2)
+              </button>
+              <button
+                onClick={() => setFilterCategory('production')}
+                className={`px-3 py-1.5 rounded-lg transition-all ${
+                  filterCategory === 'production'
+                    ? 'bg-amber-500 text-slate-950 font-bold shadow'
+                    : 'text-slate-400 hover:text-white'
+                }`}
+              >
+                Multi-Head Production (1)
               </button>
             </div>
           </div>

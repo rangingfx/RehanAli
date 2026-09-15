@@ -140,7 +140,7 @@ export const EmbroideryMachineryVisual: React.FC<EmbroideryMachineryVisualProps>
                 </div>
 
                 <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-slate-950/80 backdrop-blur-md border border-slate-700/80 text-[10px] font-mono font-medium text-slate-300 shadow-lg">
-                  <span>TAJIMA & BARUDAN CLASS</span>
+                  <span>MULTI-HEAD INDUSTRIAL</span>
                 </div>
               </div>
 

@@ -61,10 +61,12 @@ export const HomePage: React.FC = () => {
           'Senior Embroidery Machine Operator & Mechanical Master with 10+ years hands-on experience in computerized embroidery machinery, mechanical maintenance, troubleshooting, and production quality control.',
         knowsAbout: [
           'Computerized Embroidery Machinery',
-          'Barudan Embroidery Machines',
-          'Tajima Embroidery Machines',
-          'SWF Embroidery Machines',
-          'Feiya Embroidery Machines',
+          'Yuemei Embroidery Machines',
+          'SWM Industrial Embroidery Machinery',
+          'Humble Commercial Embroidery',
+          'AA Champion Industrial Embroidery',
+          'Great Multi-Head Production Machines',
+          'Pro Maker Industrial Embroidery Systems',
           'Hook and Needle Timing Calibration (0.05mm)',
           'Thread Tension Balancing & Zero Loop Tuning',
           'Mechanical Troubleshooting & Maintenance',
@@ -177,7 +179,7 @@ export const HomePage: React.FC = () => {
                     <ArrowRight className="w-4 h-4 text-slate-500 group-hover:text-amber-400 group-hover:translate-x-1 transition-all" />
                   </h3>
                   <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
-                    Barudan, Tajima, SWF, Feiya multi-head machinery, needle-hook timing, calibration & live photos.
+                    Yuemei, SWM, Humble, AA Champion, Great &amp; Pro Maker multi-head machinery, needle-hook timing &amp; live photos.
                   </p>
                 </div>
               </div>

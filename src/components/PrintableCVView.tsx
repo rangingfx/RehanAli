@@ -670,8 +670,8 @@ export const PrintableCVView: React.FC<PrintableCVViewProps> = ({ onBack }) => {
                 <div className="bg-slate-50 p-3 rounded-lg border border-slate-200">
                   <div className="font-bold text-slate-900 mb-1.5">Machine Brands & Operational Mastery:</div>
                   <ul className="space-y-1 text-slate-700 text-[11px]">
-                    <li>• <strong>Chinese Industrial Brands:</strong> Yuemei (Budget/Industrial), SWM (Industrial), Humble (Commercial), AA Champion, Great (Multi-Head Production), Pro Maker, Feiya</li>
-                    <li>• <strong>Japanese & Korean Systems:</strong> Barudan (10+ Yrs), Tajima (10+ Yrs), SWF (8+ Yrs)</li>
+                    <li>• <strong>Computerized Machinery:</strong> Yuemei (Budget/Industrial), SWM (Industrial), Humble (Commercial), AA Champion (Industrial), Great (Multi-Head Production), Pro Maker</li>
+                    <li>• <strong>Control Systems:</strong> Dahao computerized operation panels, frame synchronization & multi-needle setup</li>
                     <li>• <strong>Mechanical Timing:</strong> Hook & needle timing calibration with 0.05mm clearance</li>
                     <li>• <strong>Troubleshooting:</strong> Diagnostic repair, board alarms, part replacement & zero loop</li>
                     <li>• <strong>Preventive Care:</strong> Daily lubrication, rotary deburring, lint clearance & belts</li>

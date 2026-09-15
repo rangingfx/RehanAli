@@ -23,11 +23,11 @@ export const EmbroideryMachinePage: React.FC = () => {
   useSEO({
     title: 'Embroidery Machine Operation & Mechanical Expertise | Rehan Ali',
     description:
-      'Technical expertise in industrial computerized embroidery machines: Barudan, Tajima, multi-head systems, mechanical maintenance, rotary hook timing, and error troubleshooting.',
+      'Technical expertise in industrial computerized embroidery machines: Yuemei, SWM, Humble, AA Champion, Great, Pro Maker, multi-head systems, mechanical maintenance, rotary hook timing, and error troubleshooting.',
     canonicalUrl: 'https://rehanali.rangingfx.com/embroidery-machine',
     ogTitle: 'Embroidery Machine Operation & Mechanical Expertise | Rehan Ali',
     ogDescription:
-      'Technical expertise in industrial computerized embroidery machines: Barudan, Tajima, multi-head systems, mechanical maintenance, rotary hook timing, and error troubleshooting.',
+      'Technical expertise in industrial computerized embroidery machines: Yuemei, SWM, Humble, AA Champion, Great, Pro Maker, multi-head systems, mechanical maintenance, rotary hook timing, and error troubleshooting.',
     ogType: 'website',
     breadcrumbs: [
       { name: 'Home', item: 'https://rehanali.rangingfx.com/' },
@@ -38,7 +38,7 @@ export const EmbroideryMachinePage: React.FC = () => {
       '@type': 'TechArticle',
       headline: 'Industrial Embroidery Machine Operation & Mechanical Maintenance',
       description:
-        'Technical expertise in industrial computerized embroidery machines: Barudan, Tajima, multi-head systems, mechanical maintenance, rotary hook timing, and error troubleshooting.',
+        'Technical expertise in industrial computerized embroidery machines: Yuemei, SWM, Humble, AA Champion, Great, Pro Maker, multi-head systems, mechanical maintenance, rotary hook timing, and error troubleshooting.',
       url: 'https://rehanali.rangingfx.com/embroidery-machine',
       author: {
         '@type': 'Person',
@@ -82,7 +82,7 @@ export const EmbroideryMachinePage: React.FC = () => {
                 Industrial Embroidery Machine Operation &amp; Mechanical Maintenance
               </h1>
               <p className="text-slate-300 text-sm sm:text-base max-w-2xl leading-relaxed">
-                Expert operation and maintenance of Barudan, Tajima, SWF, Feiya, and Brother computerized embroidery machines. Specializing in mechanical timing, rotary hook calibration, zero-loop tension balancing, and uptime optimization.
+                Expert operation and maintenance of Yuemei, SWM, Humble, AA Champion, Great, and Pro Maker computerized embroidery machines. Specializing in mechanical timing, rotary hook calibration, zero-loop tension balancing, and uptime optimization.
               </p>
             </div>
 

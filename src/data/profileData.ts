@@ -40,7 +40,7 @@ export const heroContent = {
   titleLine1: 'Senior Embroidery Machine Operator',
   titleLine2: '& Mechanical Master',
   supportingText:
-    'Highly skilled and dedicated embroidery machine operator and mechanical specialist with 10+ years of hands-on experience in textile and apparel production, specializing in computerized embroidery machinery (Yuemei, SWM, Humble, AA Champion, Great, Pro Maker, Barudan, Tajima, SWF), machine troubleshooting, maintenance, and production quality control.',
+    'Highly skilled and dedicated embroidery machine operator and mechanical specialist with 10+ years of hands-on experience in textile and apparel production, specializing in computerized embroidery machinery (Yuemei, SWM, Humble, AA Champion, Great, Pro Maker), machine troubleshooting, maintenance, and production quality control.',
   status: 'OPEN TO JOB OPPORTUNITIES',
 };
 
@@ -49,7 +49,7 @@ export const professionalSummary = {
   paragraphs: [
     'Highly skilled and dedicated Embroidery Machine Operator and Mechanical Master with over a decade of hands-on experience dating back to 2011 in the textile and apparel industry.',
     'Proven expertise in operating, troubleshooting, maintaining, calibrating, and optimizing complex multi-head industrial embroidery machinery.',
-    'Extensive hands-on operational and mechanical mastery across leading industrial machinery brands: Yuemei (Budget / industrial), SWM (Industrial embroidery), Humble (Commercial embroidery), AA Champion (Industrial embroidery), Great (Multi-head production), Pro Maker, Barudan, Tajima, SWF, and Feiya.',
+    'Extensive hands-on operational and mechanical mastery across leading industrial machinery brands: Yuemei (Budget / industrial), SWM (Industrial embroidery), Humble (Commercial embroidery), AA Champion (Industrial embroidery), Great (Multi-head production), and Pro Maker.',
     'Collaborated with premier fashion and garment brands and textile export houses, including Maria.B, Outfitters, Bareeze, Bilal Textile, Shaner, and AkashCollection.pk.',
     'Known for technical proficiency, mechanical problem-solving, 0.05mm rotary hook timing calibration, precision thread tension balancing, and optimizing high-capacity production workflows.',
   ],
@@ -166,9 +166,7 @@ export const skillCategories: SkillCategory[] = [
       'Multi-head industrial embroidery machines',
       'Yuemei, SWM & Humble operations',
       'AA Champion, Great & Pro Maker systems',
-      'Barudan & Tajima computerized setups',
-      'SWF & Feiya multi-needle machinery',
-      'Computerized control panels (Dahao & Tajima)',
+      'Computerized control panels (Dahao systems)',
       'High-speed frame alignment & calibration',
       'High-capacity mass production operation',
     ],
@@ -368,8 +366,8 @@ export const educationAndTraining: EducationItem[] = [
 
 export const whyHirePoints: string[] = [
   '10+ years continuous hands-on industrial embroidery experience',
-  'Versatile brand operation: Yuemei, SWM, Humble, AA Champion, Great, Pro Maker, Barudan, Tajima & SWF',
-  'Expertise in both Budget / Industrial and High-End Multi-Head machinery',
+  'Versatile brand operation: Yuemei, SWM, Humble, AA Champion, Great, and Pro Maker',
+  'Expertise across Budget, Industrial, Commercial, and Multi-Head Production machinery',
   'Advanced mechanical troubleshooting & 0.05mm rotary hook timing calibration',
   'Proactive preventive maintenance & continuous downtime reduction',
   'Zero-defect quality inspection & thread tension balancing',
@@ -461,54 +459,6 @@ export const embroideryMachineBrands: EmbroideryMachineBrand[] = [
     years: '8+ Yrs',
     description:
       'Advanced computerized industrial embroidery machines featuring high-speed stitch capability, precision needle bar actuation, and electronic tension stabilization.',
-    tier: 'Industrial',
-  },
-  {
-    id: 'barudan',
-    name: 'Barudan',
-    country: 'Japan',
-    flag: '🇯🇵',
-    category: 'Multi-Head Computerized',
-    mastery: '100%',
-    years: '10+ Yrs',
-    description:
-      'Japanese gold-standard multi-head embroidery systems. Complete operational mastery including 0.05mm rotary hook clearance, individual head timing, and zero-break calibration.',
-    tier: 'High-End / High-Speed',
-  },
-  {
-    id: 'tajima',
-    name: 'Tajima',
-    country: 'Japan',
-    flag: '🇯🇵',
-    category: 'Multi-Head High Speed',
-    mastery: '100%',
-    years: '10+ Yrs',
-    description:
-      'Top-tier Japanese computerized high-speed multi-head machinery. Precision execution of luxury lawn, intricate multi-color designer patterns, and electronic diagnostics.',
-    tier: 'High-End / High-Speed',
-  },
-  {
-    id: 'swf',
-    name: 'SWF',
-    country: 'Korea',
-    flag: '🇰🇷',
-    category: 'Industrial Embroidery',
-    mastery: '95%',
-    years: '8+ Yrs',
-    description:
-      'Durable Korean industrial multi-head machinery known for dual-function versatility and heavy-gauge fabric handling.',
-    tier: 'Industrial',
-  },
-  {
-    id: 'feiya',
-    name: 'Feiya',
-    country: 'China',
-    flag: '🇨🇳',
-    category: 'Industrial Multi-Head',
-    mastery: '95%',
-    years: '8+ Yrs',
-    description:
-      'Versatile Chinese industrial multi-head systems. Proven track record in rapid maintenance, parts interchangeability, and dependable factory output.',
     tier: 'Industrial',
   },
 ];

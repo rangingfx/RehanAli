@@ -27,7 +27,7 @@ export const NotFoundPage: React.FC = () => {
     { label: 'Home Page', path: '/', icon: Home, desc: 'Portfolio overview and highlights' },
     { label: 'Profile & About', path: '/profile', icon: User, desc: 'Personal background, strengths & education' },
     { label: 'Work Experience', path: '/work', icon: Briefcase, desc: 'Commercial brand track record & SOPs' },
-    { label: 'Embroidery Machine', path: '/embroidery-machine', icon: Cpu, desc: 'Barudan/Tajima multi-head machinery & calibration' },
+    { label: 'Embroidery Machine', path: '/embroidery-machine', icon: Cpu, desc: 'Multi-head industrial machinery & calibration' },
     { label: 'Printable CV', path: '/cv', icon: FileText, desc: 'Complete executive resume & PDF format' },
   ];
 
