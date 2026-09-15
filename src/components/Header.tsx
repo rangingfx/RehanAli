@@ -9,9 +9,11 @@ import {
   X,
   Briefcase,
   ChevronDown,
+  Download,
 } from 'lucide-react';
 import { contactInfo } from '../data/profileData';
 import { downloadVCard } from '../utils/vcard';
+import { openDownloadCVModal } from '../utils/cvDownload';
 import {
   getSavedProfilePhoto,
   subscribeProfilePhoto,
@@ -145,14 +147,14 @@ export const Header: React.FC<HeaderProps> = ({ onOpenCV }) => {
         {/* Desktop CTAs */}
         <div className="hidden sm:flex items-center gap-2.5">
           {/* CV Action Button */}
-          <Link
-            to="/cv"
-            className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg border border-slate-700 hover:border-amber-500/50 bg-slate-900 text-slate-200 hover:text-white text-xs font-medium transition-all shadow-sm active:scale-95"
-            title="View, Print or Download Rehan Ali's CV"
+          <button
+            onClick={openDownloadCVModal}
+            className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg border border-amber-500/50 hover:border-amber-400 bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 hover:text-white text-xs font-semibold transition-all shadow-sm active:scale-95 cursor-pointer"
+            title="Download CV (PDF) or Print formatted resume"
           >
-            <FileText className="w-3.5 h-3.5 text-amber-400" />
-            <span>Print / View CV</span>
-          </Link>
+            <Download className="w-3.5 h-3.5 text-amber-400" />
+            <span>Download CV</span>
+          </button>
 
           {/* Quick Call Dropdown */}
           <div className="relative">
@@ -209,13 +211,13 @@ export const Header: React.FC<HeaderProps> = ({ onOpenCV }) => {
 
         {/* Mobile Hamburger Button */}
         <div className="flex items-center gap-2 lg:hidden">
-          <Link
-            to="/cv"
-            className="p-2 rounded-lg bg-slate-900 border border-slate-700 text-amber-400"
-            title="View CV"
+          <button
+            onClick={openDownloadCVModal}
+            className="p-2 rounded-lg bg-slate-900 border border-slate-700 text-amber-400 hover:text-white cursor-pointer"
+            title="Download CV"
           >
-            <FileText className="w-4 h-4" />
-          </Link>
+            <Download className="w-4 h-4" />
+          </button>
           <a
             href={contactInfo.phones[0].whatsappUrl}
             target="_blank"
@@ -227,7 +229,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenCV }) => {
           </a>
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 rounded-lg bg-slate-900 border border-slate-800 text-slate-300 hover:text-white"
+            className="p-2 rounded-lg bg-slate-900 border border-slate-800 text-slate-300 hover:text-white cursor-pointer"
             aria-label="Toggle navigation menu"
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -277,20 +279,22 @@ export const Header: React.FC<HeaderProps> = ({ onOpenCV }) => {
             </div>
 
             <div className="grid grid-cols-2 gap-2 pt-1">
-              <Link
-                to="/cv"
-                onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-lg bg-slate-800 text-slate-100 text-xs font-semibold border border-slate-700"
+              <button
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  openDownloadCVModal();
+                }}
+                className="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-lg bg-amber-500/15 text-amber-300 text-xs font-semibold border border-amber-500/40 cursor-pointer"
               >
-                <FileText className="w-4 h-4 text-amber-400" />
-                <span>View / Print CV</span>
-              </Link>
+                <Download className="w-4 h-4 text-amber-400" />
+                <span>Download CV</span>
+              </button>
               <button
                 onClick={() => {
                   setMobileMenuOpen(false);
                   downloadVCard();
                 }}
-                className="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-lg bg-slate-800 text-slate-200 text-xs font-semibold border border-slate-700"
+                className="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-lg bg-slate-800 text-slate-200 text-xs font-semibold border border-slate-700 cursor-pointer"
               >
                 <Briefcase className="w-4 h-4 text-amber-400" />
                 <span>Save Contact</span>

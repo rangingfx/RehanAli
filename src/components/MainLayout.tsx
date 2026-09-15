@@ -4,6 +4,7 @@ import { Header } from './Header';
 import { Breadcrumb } from './Breadcrumb';
 import { Footer } from './Footer';
 import { MobileBottomBar } from './MobileBottomBar';
+import { DownloadCVModal } from './DownloadCVModal';
 
 export const MainLayout: React.FC = () => {
   return (
@@ -15,6 +16,7 @@ export const MainLayout: React.FC = () => {
       </main>
       <Footer />
       <MobileBottomBar />
+      <DownloadCVModal />
     </div>
   );
 };

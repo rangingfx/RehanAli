@@ -41,6 +41,7 @@ import {
   embroideryMachineBrands,
 } from '../data/profileData';
 import { downloadVCard } from '../utils/vcard';
+import { downloadCVPdfFile, CV_PDF_URL, CV_PDF_FILENAME } from '../utils/cvDownload';
 import {
   getSavedProfilePhoto,
   subscribeProfilePhoto,
@@ -55,6 +56,7 @@ interface PrintableCVViewProps {
 export const PrintableCVView: React.FC<PrintableCVViewProps> = ({ onBack }) => {
   const [profilePhoto, setProfilePhoto] = useState<string>(getSavedProfilePhoto);
   const [copied, setCopied] = useState(false);
+  const [downloading, setDownloading] = useState(false);
   const [layoutMode, setLayoutMode] = useState<'executive' | 'classic'>('executive');
   const [showFactoryProof, setShowFactoryProof] = useState(true);
 
@@ -65,8 +67,33 @@ export const PrintableCVView: React.FC<PrintableCVViewProps> = ({ onBack }) => {
     return unsub;
   }, []);
 
+  // Automatic trigger if navigated with ?print=true or ?download=pdf
+  useEffect(() => {
+    try {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get('print') === 'true' || params.get('action') === 'print') {
+        const timer = setTimeout(() => {
+          window.print();
+        }, 500);
+        return () => clearTimeout(timer);
+      } else if (params.get('download') === 'true' || params.get('download') === 'pdf') {
+        downloadCVPdfFile();
+      }
+    } catch {
+      // Safe fallback
+    }
+  }, []);
+
   const handlePrint = () => {
     window.print();
+  };
+
+  const handleDirectDownload = () => {
+    setDownloading(true);
+    downloadCVPdfFile();
+    setTimeout(() => {
+      setDownloading(false);
+    }, 2200);
   };
 
   const copyShareLink = () => {
@@ -171,6 +198,25 @@ export const PrintableCVView: React.FC<PrintableCVViewProps> = ({ onBack }) => {
               </button>
 
               <button
+                onClick={handleDirectDownload}
+                className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-100 text-xs font-semibold border border-slate-700/80 transition-all active:scale-95 cursor-pointer"
+                title="Download pre-compiled PDF file directly"
+              >
+                {downloading ? (
+                  <>
+                    <Check className="w-4 h-4 text-emerald-400" />
+                    <span className="text-emerald-400 font-bold">DOWNLOADING...</span>
+                  </>
+                ) : (
+                  <>
+                    <Download className="w-4 h-4 text-amber-400" />
+                    <span>DOWNLOAD PDF</span>
+                    <span className="hidden lg:inline-block text-[10px] text-slate-400 font-mono">.pdf</span>
+                  </>
+                )}
+              </button>
+
+              <button
                 onClick={downloadVCard}
                 className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold transition-colors cursor-pointer border border-slate-700/60"
                 title="Save contact info to phone"
@@ -215,7 +261,7 @@ export const PrintableCVView: React.FC<PrintableCVViewProps> = ({ onBack }) => {
             <div className="flex items-center gap-1.5">
               <Sparkles className="w-3.5 h-3.5 text-amber-400 shrink-0" />
               <span>
-                Standard A4 Document Format. In print dialog, select <strong>Destination: Save as PDF</strong> and enable <strong>Background graphics</strong>.
+                Standard A4 Document Format. In print dialog, select <strong>Destination: Save as PDF</strong> and enable <strong>Background graphics</strong>. Or click <strong>DOWNLOAD PDF</strong> for instant file download.
               </span>
             </div>
             <div className="flex items-center gap-2 text-slate-500">

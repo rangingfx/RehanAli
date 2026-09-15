@@ -19,6 +19,7 @@ import {
 import { heroContent, contactInfo } from '../data/profileData';
 import { EmbroideryMachineryVisual } from './EmbroideryMachineryVisual';
 import { downloadVCard } from '../utils/vcard';
+import { openDownloadCVModal } from '../utils/cvDownload';
 import {
   getSavedProfilePhoto,
   saveProfilePhoto,
@@ -242,14 +243,15 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCV }) => {
                 <ChevronRight className="w-4 h-4 text-slate-400" />
               </Link>
 
-              {/* Fourth CTA: Download / Print CV */}
-              <Link
-                to="/cv"
-                className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 text-slate-200 hover:text-white font-medium text-sm border border-slate-700 transition-all"
+              {/* Fourth CTA: Download CV */}
+              <button
+                onClick={openDownloadCVModal}
+                className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 text-slate-200 hover:text-white font-medium text-sm border border-slate-700 hover:border-amber-500/50 transition-all cursor-pointer shadow-sm active:scale-98"
+                title="Download CV (PDF) or Print formatted resume"
               >
-                <FileText className="w-4 h-4 text-amber-400" />
-                <span>Download / Print CV</span>
-              </Link>
+                <Download className="w-4 h-4 text-amber-400" />
+                <span>Download CV</span>
+              </button>
             </div>
 
             {/* Clickable Phone Number Pills & Quick Save */}

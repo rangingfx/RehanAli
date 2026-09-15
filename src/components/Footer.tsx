@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { contactInfo } from '../data/profileData';
-import { Phone, MessageCircle, FileText, ArrowUp, ExternalLink, ShieldCheck } from 'lucide-react';
+import { Phone, MessageCircle, FileText, ArrowUp, ExternalLink, ShieldCheck, Download } from 'lucide-react';
 import { downloadVCard } from '../utils/vcard';
+import { openDownloadCVModal } from '../utils/cvDownload';
 import {
   getSavedProfilePhoto,
   subscribeProfilePhoto,
@@ -143,13 +144,14 @@ export const Footer: React.FC<FooterProps> = () => {
                 <span>WhatsApp</span>
               </a>
 
-              <Link
-                to="/cv"
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-700 hover:border-amber-500/50 text-slate-200 text-xs font-semibold transition-colors"
+              <button
+                onClick={openDownloadCVModal}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-700 hover:border-amber-500/50 text-slate-200 hover:text-white text-xs font-semibold transition-colors cursor-pointer"
+                title="Download CV (PDF) or Print"
               >
-                <FileText className="w-3.5 h-3.5 text-amber-400" />
+                <Download className="w-3.5 h-3.5 text-amber-400" />
                 <span>Download CV</span>
-              </Link>
+              </button>
 
               <button
                 onClick={downloadVCard}
