@@ -79,7 +79,7 @@ async function createCVPdf() {
     borderWidth: 1,
   });
 
-  const contactText = 'Tel: +92 322 3988933 / +92 333 4130171   |   Lahore, Pakistan   |   Portfolio: https://rehanali.rangingfx.com';
+  const contactText = 'Tel: +92 322 39 88 933 / +92 333 41 30 171   |   Lahore, Pakistan   |   Portfolio: https://rehanali.rangingfx.com';
   page.drawText(contactText, {
     x: margin + 12,
     y: y - 16,
@@ -368,7 +368,7 @@ async function createCVPdf() {
     color: rgb(1, 1, 1),
   });
 
-  page.drawText('Official verified CV of Rehan Ali  •  Available for immediate hiring discussions  •  Tel: 0322-3988933 / 0333-4130171', {
+  page.drawText('Official verified CV of Rehan Ali  •  Available for immediate hiring discussions  •  Tel: +92 322 39 88 933 / +92 333 41 30 171', {
     x: margin + 12,
     y: y - 27,
     size: 7,

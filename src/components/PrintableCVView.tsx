@@ -266,7 +266,7 @@ export const PrintableCVView: React.FC<PrintableCVViewProps> = ({ onBack }) => {
             </div>
             <div className="flex items-center gap-2 text-slate-500">
               <span>Direct verification:</span>
-              <a href="tel:+923223988933" className="text-amber-400 hover:underline font-mono">0322 39 88 933</a>
+              <a href="tel:+923223988933" className="text-amber-400 hover:underline font-mono">+92 322 39 88 933</a>
             </div>
           </div>
 

@@ -15,14 +15,14 @@ export const contactInfo: ContactInfo = {
   statusBadge: 'OPEN TO JOB OPPORTUNITIES',
   phones: [
     {
-      display: '0322 39 88 933',
-      raw: '03223988933',
+      display: '+92 322 39 88 933',
+      raw: '+923223988933',
       tel: 'tel:+923223988933',
       whatsappUrl: 'https://wa.me/923223988933?text=Hello%20Rehan%20Ali,%20I%20reviewed%20your%20embroidery%20portfolio%20and%20would%20like%20to%20discuss%20a%20job%20opportunity.',
     },
     {
-      display: '0333 41 30 171',
-      raw: '03334130171',
+      display: '+92 333 41 30 171',
+      raw: '+923334130171',
       tel: 'tel:+923334130171',
       whatsappUrl: 'https://wa.me/923334130171?text=Hello%20Rehan%20Ali,%20I%20saw%20your%20profile%20and%20would%20like%20to%20discuss%20an%20embroidery%20operator%20position.',
     },
