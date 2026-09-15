@@ -49,7 +49,7 @@ export const HomePage: React.FC = () => {
         name: 'Rehan Ali',
         jobTitle: 'Senior Embroidery Machine Operator & Mechanical Master',
         url: 'https://rehanali.rangingfx.com/',
-        image: 'https://rehanali.rangingfx.com/rehan.jpeg',
+        image: 'https://rehanali.rangingfx.com/rehen.jpeg',
         telephone: ['+923223988933', '+923334130171'],
         address: {
           '@type': 'PostalAddress',

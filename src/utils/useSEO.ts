@@ -24,7 +24,7 @@ export function useSEO({
   canonicalUrl,
   ogTitle,
   ogDescription,
-  ogImage = 'https://rehanali.rangingfx.com/rehan.jpeg',
+  ogImage = 'https://rehanali.rangingfx.com/rehen.jpeg',
   ogType = 'website',
   noindex = false,
   breadcrumbs,
@@ -89,6 +89,8 @@ export function useSEO({
       setMetaTag('property', 'og:url', canonicalUrl);
       setMetaTag('property', 'og:type', ogType);
       setMetaTag('property', 'og:image', ogImage);
+      setMetaTag('property', 'og:image:secure_url', ogImage);
+      setMetaTag('property', 'og:image:alt', 'Rehan Ali - Senior Embroidery Machine Operator');
       setMetaTag('property', 'og:site_name', 'Rehan Ali Portfolio & CV');
       setMetaTag('property', 'og:locale', 'en_US');
 
@@ -98,6 +100,7 @@ export function useSEO({
       setMetaTag('name', 'twitter:description', ogDescription || description);
       setMetaTag('name', 'twitter:url', canonicalUrl);
       setMetaTag('name', 'twitter:image', ogImage);
+      setMetaTag('name', 'twitter:image:alt', 'Rehan Ali - Senior Embroidery Machine Operator');
 
       // 7. Dynamic JSON-LD Structured Data Injection
       const schemaList: Record<string, any>[] = [];

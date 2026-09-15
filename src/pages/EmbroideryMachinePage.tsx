@@ -45,6 +45,7 @@ export const EmbroideryMachinePage: React.FC = () => {
         name: 'Rehan Ali',
         jobTitle: 'Senior Embroidery Machine Operator & Mechanical Master',
         url: 'https://rehanali.rangingfx.com/embroidery-machine',
+        image: 'https://rehanali.rangingfx.com/rehen.jpeg',
       },
     },
   });

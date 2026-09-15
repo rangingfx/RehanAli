@@ -3,7 +3,7 @@ const STORAGE_KEY = 'rehan_ali_custom_photo';
 const EVENT_NAME = 'rehan_ali_photo_changed';
 
 // Authentic portraits provided by Rehan Ali
-export const DEFAULT_PROFILE_PHOTO = '/rehan.jpeg';
+export const DEFAULT_PROFILE_PHOTO = '/rehen.jpeg';
 export const FACTORY_ACTION_PHOTO = '/cv.jpeg';
 
 export function getSavedProfilePhoto(): string {

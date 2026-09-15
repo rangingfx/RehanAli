@@ -42,7 +42,7 @@ export const WorkPage: React.FC = () => {
         name: 'Rehan Ali',
         jobTitle: 'Senior Embroidery Machine Operator & Mechanical Master',
         url: 'https://rehanali.rangingfx.com/work',
-        image: 'https://rehanali.rangingfx.com/rehan.jpeg',
+        image: 'https://rehanali.rangingfx.com/rehen.jpeg',
       },
     },
   });
